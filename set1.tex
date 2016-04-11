@@ -1,0 +1,161 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.6in]{geometry}
+\title{}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Pointing Lasers at the Moon}
+
+\subsection{Flux returned per laser}
+
+The flux that reflects back per laser is easy to put a crude upper bound on. Suppose the moon is perfectly reflecting plane that faces each laser directly. In the \(\pi = 10^0\) optics approximation, our laser pointers spread their power evenly over an angle \(\theta \approx \lambda/d\). \(\lambda = 650 \,\mathrm{nm}\) and \(d=1\,\mathrm{mm}\) seem reasonable for a laser pointer, so \(\theta = 6.5 \times 10^{-4}\) radians, and each projects a disk of radius \( \theta r_{earth-moon}/2 \approx 10^5\) m on the moon. Beam divergence on the return trip will be negligible since \(\lambda / 1\) mm \(\gg \lambda / 10^{5}\) m. Optimistically then, a laser pointer comes back to us spread out over \(\pi \times 10^{10} \, \mathrm{m}^2\). If each laser emits at a milliwatt, it returns at the very most a flux of \(3\times 10^{-11} \, \mathrm{mW}/\mathrm{m}^2\).
+
+Below, we can guess that the moon is actually only about 15\% reflective, so a one milliwatt laser pointer more realistically generates a flux of at most \(4.5\times 10^{-12} \, \mathrm{mW}/\mathrm{m}^2\)
+
+
+\subsubsection{Reflectivity of the moon}
+
+The sun peaks in the optical, so let's approximate all of Earth's surface's roughly \( 1 \, \mathrm{kW} / \mathrm{m}^2\) average solar flux as optical. Neglecting atmosphere, the earth and moon should see roughly the same solar flux since the earth-moon distance is small compared to one AU. So direct sunlight on both bodies is about \( 2 \, \mathrm{kW} / \mathrm{m}^2\) of optical photons. The power incident on the full moon is then \((2\pi r_{moon}^2)( 2 \, \mathrm{kW} / \mathrm{m}^2) \approx 4 \times 10^{13} \,\mathrm{kW} \). A perfectly reflecting moon would re-radiate all of this over \(2\pi\) steradians, and create a flux at Earth's surface of \(45 \,\mathrm{mW} / \mathrm{m}^2\).
+
+The sun's apparent magnitude is -26.7, and the full moon's is -12.7, so the flux seen on Earth from the full moon is a factor of \(10^{14/2.5} \approx 10^{5.5} \approx 3 \times 10^{5} \) lower than \( 2 \, \mathrm{kW} / \mathrm{m}^2\), or about \(6\,  \mathrm{mW} / \mathrm{m}^2\). It seems reasonable to claim that the moon reflects only about 15\% of incident optical power.
+
+\subsubsection{Pointing issues}
+
+Above, we've implicitly assumed that every laser can be pointed accurately at the same region of the moon, or equivalently that we're consolidating all the emission power into a single laser. If we're sticking to the story about a large number of human-mounted ~milliwatt laser pointers, this probably isn't nearly the case. 
+
+Suppose the human hand is only steady to about a degree. At the Earth-Moon distance, this is an error of a few lunar radii, so we should take our flux return down by a factor of approximately a the beam area on the moon over the lunar surface area. I suspect we're going to run out of humans as it is, though, and assume the problem statement doesn't mean this.
+
+\subsubsection{Atmospherics}
+
+It turns out we can mostly ignore atmosphere. Our beam diffracts to arcminute scales as we've seen above, so scattering should not be important. Optical extinction should only be about thirty percent, considering that the solar flux on Earth at the top of the atmosphere is ~1.3 \(\mathrm{kW}/m^2\) and ~1 \(\mathrm{kW}/m^2\) at the surface. After all the approximations about to be made, this is going to be too small to care about.
+
+\subsection{Flux detection threshold}
+
+The dimmest star a human can see is magnitude 6.5, given a very dark magnitude 8 sky. This makes the star about a factor of four brighter than the background, so in the very dark limit, we can put the human detection threshold at a quarter of background flux.
+
+For brighter backgrounds, this fraction seems much too low. Most computer monitors allow color channel intensity adjustments of about a percent, so we can take the bright detection threshold here to be about one percent of background.
+
+%For the full moon, supposing roughly a third of the moon's flux is in the human red waveband, we would estimate this way that we need between 200 and 2000 \(\mathrm{\mu W}/\mathrm{m^2}\) in laser returns.
+
+%For a magnitude 6 new moon (\(10^{18.7/2.5}\approx 3\times10^{7}\) times dimmer than the full moon), presumably only rod cells (which are sensitive over the whole optical band) participate in the detection, so we lose the factor of three detection advantage but still need \(10^{7}\) times less flux.
+
+So for a full moon, we might need 0.06 \(\mathrm{ mW}/\mathrm{m^2}\) of return.
+
+\subsection{How many lasers do we need?}
+
+Putting it all together, a low estimate for the number of lasers needed to show against the full moon is \(0.06 / (4.5\times 10^{-12}) \approx 10^{10}\).
+
+
+\subsection{Using fewer lasers}
+
+The most obvious thing to do is to get a larger laser aperture, since flux returned should go roughly with \( \mathrm{aperture}^{2}\). If we get a large enough aperture, the beam will be narrow enough at the lunar surface to manage to bounce a nontrivial fraction of its power off a mirror that we could reasonably place on the moon.
+
+Flux returns should also go with \(\mathrm{\lambda}^{-2}\), but we have many fewer orders of magnitude in \(\lambda\) to work with. 
+
+
+\section{Terraforming Mars}
+
+\subsection{(A) Terraforming material costs}
+
+\subsubsection{Atmospheric composition}
+
+Our target atmosphere should use an economy of atoms, so it's going to be composed of just enough greenhouse gases to keep the surface reasonably warm, and then just enough \(\mathrm{O}_2\) to be comfortably breathable.
+
+Choosing a greenhouse gas though is tricky. We want an efficient greenhouse gas that leaves the atmosphere breathable at the quantities we will need, while having a UV chemistry that doesn't either make it prohibitively difficult to replace, or generate decay products that defeat the goals of the atmosphere design. Presumably the solution is a mixture of gases that maintain some desired chemical equilibrium.
+
+In general, we need to answer this in order to know how much \(\mathrm{O}_2\) is required to reach a given \(\mathrm{O}_2\) mass per atmospheric volume. For example, the greenhouse component could have a molecular mass similar to \(\mathrm{O}_2\), so that it dilutes the \(\mathrm{O}_2\) concentration at the surface of Mars. Alternatively, we could have an ultramassive layer of buoyant gas that sits on top of the \(\mathrm{O}_2\) and compresses it to high density.
+
+Earth seems to manage with a greenhouse gas mass much lower than its \(\mathrm{O}_2\) mass, so let's just assume the greenhouse component is going to be negligible, and we have a pure \(\mathrm{O}_2\) atmosphere. 
+
+\subsubsection{How much \(\mathrm{O}_2\) do we need?}
+
+Let's further approximate the atmosphere as isothermal ideal gas, for no other reason than it makes this calculation easier. The density should be an exponential with the same scale height \(z_0 = RT/\mu g\) as the pressure.
+
+Mars has half the radius and a tenth the mass of Earth. Notice
+
+\[g_{Earth} = GM_{Earth}/R_{Earth}^2 = G(10 M_{Mars})/(2r_{Mars})^2 = (10/4)g_{mars} \]
+
+so that \(g_{mars} \approx 4 \, \mathrm{m} / \mathrm{s}^2\). For our oxygen atmosphere at 300 K, \(z_0 \approx (8)(300)/((32\times10^{-3})(4)) \,\mathrm{m} \approx 20 \,\mathrm{km} \)
+
+Next we fix \( \rho_0 \) at the Earth sea level value and find the mass per area of atmosphere that results:
+
+\[\int_0^\infty \rho_0 e^{-z/z_0}dz = \rho_0 z_0
+\]
+
+Earth sea level has an oxygen partial pressure of 20\% and a molar volume of air of 22.4 L/mol so that the molar volume of \(\mathrm{O}_2\) is near 110 L/mol. \(\mathrm{O}_2\) has a molar mass of 32 g/mol, so that \(\rho_0 \approx .3\) g/L \( = .3 \,\mathrm{kg}/\mathrm{m}^3\), yielding a \(\rho_0 z_0\) for our artificial atmosphere of \( 6000 \,\mathrm{kg}/\mathrm{m}^2\).
+
+
+\subsubsection{How much soil do we need?}
+
+Let's suppose that Mars is made of quartz (\(\mathrm{SiO_2}\)) because it's the simplest silicate to deal with. This will give us an optimistically small excavation depth though, since Mars is probably not entirely silicates.
+
+Quartz has a molar mass of about twice molecular oxygen, so we need to dig up  \( 12 \times 10^{3} \,\mathrm{kg}/\mathrm{m}^2\). Supposing quartz has a density of \(3000 \,\mathrm{kg}/\mathrm{m}^3\), we only need to take four meters off the surface of Mars to get the oxygen we need.
+
+\subsection{(B) Terraforming timescales}
+
+A typical carbon single bond energy is around 400 kJ/mol. Silicon is in the same group as carbon, so presumably a typical bond energy for silicon isn't much different. To extract the oxygen from  quartz, we need to break four single bonds at a cost of roughly 1.6 MJ/mol. From above, we need \(2 \times 10^{5} \,\mathrm{mol}/\mathrm{m^2}\), or \(3 \times 10^{5} \,\mathrm{MJ}/\mathrm{m^2}\) to process the Martian surface, given perfect efficiency.
+
+Mars is 1.5 AU on average from the Sun, so it should experience only four ninths of Earth's 1.3 \(\mathrm{kW}/\mathrm{m}^2\) solar irradiance. Let's round this down to .5 \(\mathrm{kW}/\mathrm{m}^2\) for convenience and atmospherics.
+Next suppose we are only 1\% efficient at harvesting and then applying this power to the oxygen generation process. The process will take \(6 \times 10^{10}\) seconds, or about two thousand years to complete.
+
+\section{Photosynthesis and Biofuels}
+
+\subsection{Photosynthetic efficiency of the potato}
+
+Tubers should have the most easily estimable photosynthetic efficiency, since they appear to minimize the leaf mass fraction, which is more difficult to analyze.
+
+So let's consider the Yukon Gold potato. I have no intuition for potato plants whatsoever. I have no idea how long a potato plant takes to mature, how many potatoes per plant to expect, or even a guess at the leaf area per plant. I believe that I have either never seen a potato plant, or else did see one and not know that I did. Nonetheless, I am a huge fan of potatoes, both as a food item and a tracer of photosynthetic efficiency.
+
+I could have taken wild but potentially reasonable guesses at all these quantities, in the spirit of the course. Instead, I decided to do some reading on potatoes.
+
+An agricultural website claims yields for the Yukon Gold of up to 500 cwt/acre. Evidently there does exist a special unit equivalent to 100 pounds called the ``hundredweight," and is abbreviated as ``cwt," but I digress. The site also claims an 80-95 day maturation period, which we can round to 100 days.
+
+So Yukon Gold potatoes form at about \(6 \times 10^{-4}\) g/\(\mathrm{m}^2/\mathrm{s}\). Carbohydrates store about 20 kJ/g in chemical energy, putting potato energy capture at .012 kW/\(\mathrm{m}^2\). This means that the Yukon Gold is maybe 1.2\% efficient at collecting solar power.
+
+\subsection{Corn ethanol land requirements}
+
+At 20\% over break even, the US needs to grow 15 TW of corn to meet its 3 TW power requirements. Just as \(\pi \approx 3\), so too does corn \(\approx\) potato, and we'll say we need about 1.5 trillion square meters of corn, which is about a sixth of the area of the US.
+
+\section{Nonbattery energy storage}
+
+First, we should establish that our reference AA battery stores 3 W hr (11 kJ), and the reference golf cart battery stores 1.8 kW hr (6.5 MJ).
+
+\subsection{Flywheel}
+
+%Probably the primary limiting factor in storing energy in a flywheel is the friction from the force exerted on its bearings. The two sources of this force that come to mind are the weight of the flywheel itself, and the force from spinning the flywheel about an off-center axle. The order of the off-center force can be guessed by dimensional analysis. We want to generate units of force from some set of relevant seeming quantities, which I will guess to be the off axis displacement \(\delta\),the change in moment of intertia \(\Delta I\) due to \(\delta\), and the rotational frequency. We get \(F = \Delta If^2/\delta\), which is \(m\delta f^2\) by the parallel axis theorem. This is comparable to the weight for \(\delta f^2 = g\). Since \(\delta\) is reasonably not more than a \(\mu\mathrm{m}\) for an ordinary machining process, \(f\) needs to be near \(10^{3.5}\) before we should start considering this effect, we will ignore it.
+
+Large ships carry hundred ton propellers about five meters in radius that can sustain over one hundred rpm without destroying their bearings. It seems reasonable then that a room sized solid steel flywheel one meter long with a one meter radius can also be spun to up about this angular velocity.
+
+Let's take an upper bound on the energy storage capacity by ignoring friction. Taking the density of steel to be \(10^4\,\mathrm{kg}/\mathrm{m}^3\), it has a mass of \(3 \times 10^{4}\) kg and a moment of inertia of \(1.5 \times 10^{4}\,\mathrm{kg}\,\mathrm{m}^2\). The kinetic energy at one hundred rpm is \(\frac{1}{2}I(2\pi \times 100)^2/60 \approx 1.5\times10^4 \times \frac{1}{3} \times 10^4 = 5 \times 10^7\,\mathrm{J}\).
+
+So even in a magical frictionless environment, we're only storing five thousand AA batteries or eight golf cart batteries. We do get to actually use almost all of that energy though, since generators are approximately perfectly efficient.
+
+%Still, this value goes with the square of the very poorly estimated angular velocity, so maybe it could be a lot higher. To see if that is worth exploring, we should first consider frictional losses. We are still spinning relatively slowly, so the bearings should be in the linear friction regime, where the frictional torque \(\tau \propto m\mu\omega\), where \(\mu\) is the coefficient of kinetic friction. This should dissipate a power \( -dE/dt \propto \tau\omega \propto m\mu\omega^2 \propto \mu E\). So energy decays exponentially with characteristic time \(\propto 1/\mu\)
+
+\subsection{Pumped storage}
+
+Realistically, energy recovery in this case is roughly perfectly efficient. Supposing a two story house can store five cubic meters of water on its roof  (which is maybe six meters off the ground), the house can recover 300 kJ.
+
+This is surprisingly low storage capacity. It's only thirty AAs, or .05 golf cart batteries.
+
+\subsection{Compressed air}
+
+A typical nitrogen cylinder might carry 50 liters at 500 psi. If we fill it initially from a 15 psi atmosphere, we can get a compression ratio of about 30. Let's imagine retrofitting one with a piston, and trying a reversible isothermal compression cycle at 300K. We can store and then retrieve \(RT\log(V_f/V_i) \approx \) 8.5 kJ per mol of working fluid this way. About two mols of ideal gas compose our working fluid (each occupying about 22 liters on the low pressure end of the cycle), so our cylinder will, in the ideal scenario, yield less than a 20 kJ capacity.
+
+We haven't gotten to thermal losses yet, and we're already underperforming a pair of AA batteries. I hereby terminate this calculation.
+
+
+\section{More solar power considerations}
+
+What are the energy costs of building and then using a 3 TW solar array?
+
+Effects that come to mind include transmission losses and the energy required to process the necessary materials. How much energy does it take to produce all of the copper transmission lines we will need? How much plastic or glass paneling is required?
+
+On a related note, how long would it take to build our martian terraforming array, assuming it had to be self sufficient from early in its construction?
+
+\end{document}
