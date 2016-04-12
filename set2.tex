@@ -5,13 +5,30 @@
 \author{}
 \date{}
 
+
+
+
 \begin{document}
 
 \maketitle
 
+\newcommand{\wmsq}{W/\(\mathrm{m}^2\)}
+
 \section{Electric car solar panels}
 
-A typical commute might be ten miles or fifteen kilometers. Car batteries seem to sell for about ten cents per amp hour.
+\subsection{Approximate parameters}
+
+A typical commute might be ten miles or fifteen kilometers one way. Lead acid batteries are about \$2.50 per usable 12V-Ah (17 kJ/dollar), based on a sample of one sixty dollar, 45 Ah battery I found, which presumably has a usable capacity of half the rated value (unless of course we only want to get to use the battery once...). A typical home-use, nontracking solar array might have access to a daily average of 200 \wmsq and be 10\% efficent. Let's round the 4 km/kWh vehicle efficiency down by 10\% to 1 km/MJ for convenience, and keep the four dollar per peak-watt figure. 
+
+Assuming a peak-watt occurs during direct sunlight of 1 k\wmsq, one average-watt of solar power costs twenty dollars and requires a twentieth of a square meter of collection area.
+
+\subsection{Project costs}
+
+We need to find 30 MJ per day for the car. At 50\% storage efficiency and 80\% charging efficiency, the solar panels to harvest 75 MJ per day, or about 850 watts. This will cost seventeen thousand dollars, and require over forty square meters of collecting area.
+
+We need 105 MJ total of battery storage (75 MJ for the array and 30 MJ for the car). This will cost six thousand dollars in lead acid batteries alone, before installation and power distribution, which might double the cost. Cycling these batteries every day will probably require us to replace them on O(5 year) timescales.
+
+So the whole thing will run near thirty thousand dollars to build, and then maybe a few hundred per year to operate.
 
 
 \section{Personal Heating}
@@ -24,7 +41,7 @@ The sink's volume is probably five liters, and is initially near room temperatur
 
 Supposing the home's water heater is only only 50\% efficient, the cost rises to 800 kJ. Convective and evaporative heat loss to the environment might contribute something too over the several minutes we might expect this process to take. 
 
-So we can say this process takes beteen .5 and 1 MJ and is 5-10\% efficient.
+So we can say this process takes between .5 and 1 MJ and is 5-10\% efficient.
 
 \subsection{Space heater}
 
@@ -37,5 +54,30 @@ This might take half an hour, consuming 90 kJ, making it nearly 50\% efficient.
 \subsection{Blankets}
 
 Suppose this takes one hour. A hundred watt metabolism will consume 360 kJ, and will be a little better than 10\% efficient.
+
+
+\section{•}
+
+\section{Planck Units}
+
+The first thing to notice is that the combination \(\hbar G\) gets rid of the mass units in \(\hbar\) and \(G\), and leaves us with a combination of length and time. It's easy to see from there 
+
+\[ l_p = \sqrt{\frac{\hbar G}{c^3}} = 1.6 \times 10^{-35} \,\mathrm{m}
+\]
+
+The rest follow pretty easily. We would expect \(c = l_p/t_p\), so 
+
+\[ t_p = \frac{c}{l_p} = 5.4 \times 10^{-44} \, \mathrm{s}
+\]
+
+\(\hbar\) has units of action, so it would follow
+
+\[ E_p = \frac{\hbar}{t_p} = 2 \times 10^9 \,\mathrm{J}
+\]
+
+Lastly, 
+
+\[ T_p = \frac{E_p}{k_B} = 1.4 \times 10^{32}\,\mathrm{K}
+\]
 
 \end{document}
