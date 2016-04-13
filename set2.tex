@@ -12,23 +12,30 @@
 
 \maketitle
 
-\newcommand{\wmsq}{W/\(\mathrm{m}^2\)}
+\newcommand{\wmsq}{W/\(\mathrm{m}^2\,\)}
+\newcommand{\msq}{\(\mathrm{m}^2\,\)}
 
 \section{Electric car solar panels}
 
 \subsection{Approximate parameters}
 
-A typical commute might be ten miles or fifteen kilometers one way. Lead acid batteries are about \$2.50 per usable 12V-Ah (17 kJ/dollar), based on a sample of one sixty dollar, 45 Ah battery I found, which presumably has a usable capacity of half the rated value (unless of course we only want to get to use the battery once...). A typical home-use, nontracking solar array might have access to a daily average of 200 \wmsq and be 10\% efficent. Let's round the 4 km/kWh vehicle efficiency down by 10\% to 1 km/MJ for convenience, and keep the four dollar per peak-watt figure. 
+A typical commute might be ten miles or fifteen kilometers one way.
 
-Assuming a peak-watt occurs during direct sunlight of 1 k\wmsq, one average-watt of solar power costs twenty dollars and requires a twentieth of a square meter of collection area.
+
+Lead acid batteries are about \$1.25 per 12V-Ah (8.5 kJ/dollar), based on a sample of one sixty dollar, 45 Ah battery I found. However, lead acid batteries are not designed to be nearly fully discharged and can be severely damaged this way. The deeper the discharge, the more usable energy we get per battery cycle, but the fewer cycles we get. Let's say the optimal discharge is 50\% of maximum storage capacity, which is where I think most car batteries are meant to operate anyway, so let's bump the battery costs up to 17 kJ/dollar.
+
+
+A typical home-use, nontracking solar array might have access to a daily average of 200 \wmsq in a building free environment and be 10\% efficent. Supposing buildings block the sun for half the day, let's say home solar panels generate  10 \wmsq
+ 
+Let's round the 4 km/kWh vehicle efficiency down by 10\% to 1 km/MJ for convenience, and keep the four dollar per peak-watt figure. Assuming a peak-watt occurs during direct sunlight of 1 k\wmsq, one average-watt of solar power costs forty dollars and requires a tenth of a square meter of collection area.
 
 \subsection{Project costs}
 
-We need to find 30 MJ per day for the car. At 50\% storage efficiency and 80\% charging efficiency, the solar panels to harvest 75 MJ per day, or about 850 watts. This will cost seventeen thousand dollars, and require over forty square meters of collecting area.
+We need to find 30 MJ per day for the car. At 50\% storage efficiency and 80\% charging efficiency, the solar panels need to harvest 75 MJ per day, or about 850 watts. This will cost thirty four thousand dollars, and require 85 \msq.
 
-We need 105 MJ total of battery storage (75 MJ for the array and 30 MJ for the car). This will cost six thousand dollars in lead acid batteries alone, before installation and power distribution, which might double the cost. Cycling these batteries every day will probably require us to replace them on O(5 year) timescales.
+We need 105 MJ total of battery storage (75 MJ for the array and 30 MJ for the car). This will cost twelve thousand dollars in lead acid batteries alone, before installation, power distribution, and eventual battery replacement.
 
-So the whole thing will run near thirty thousand dollars to build, and then maybe a few hundred per year to operate.
+So the whole thing will run over forty five thousand dollars to build.
 
 
 \section{Personal Heating}
