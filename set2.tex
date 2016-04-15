@@ -66,12 +66,15 @@ Next, we want the surface area to volume ratio of a lung, which we will approxim
 
 Over the course of inhalation, the alveoli will expand, and the surface area to volume ratio will drop. Again resorting to the internet, the average person's typical lung volume prior to inhaling is 2.4 L (``functional residual capacity" in lung terminology). In my tests, I think I inhaled most of a 3.6 L ``inspiratory capacity". So the lung expands from 2.4 L to 6 L, or by a factor of 2.5. The alveolar radius increases a factor of \(\sqrt[3]{2.5}\), and surface area to volume falls by the same factor, so our lower bound on surface area to volume is over 70\% of the upper bound.
 
-So now we can almost compute an estimate of the air-body heat transfer coefficient, \(h\). Sparing ourselves some lung related differential equations, suppose all the heat flow is through a constant surface area to volume ratio \(\eta_{eff} = 2.6 \times 10^4 \,\mathrm{\mu m}^{-1}\), which is at the middle of the range we found. Getting this wrong results in an error of at most 15\% in \(h\), so it isn't useful to apply more rigor than this.
+So now we can almost compute an estimate of the air-body heat transfer coefficient, \(h\). Sparing ourselves some lung related differential equations, suppose all the heat flow is through a constant surface area to volume ratio \(\eta_{eff} = 2.6 \times 10^4 \,\mathrm{\mu m}^{-1}\), which is at the middle of the range we found. Getting this wrong results in an error of at most 15\% in \(h\), so it isn't useful to apply more rigor than this. Let's handwaivily do something similar with the temperature difference, and claim a \(\Delta T_{eff} = 8.5\) K, though probably introducing some nontrivial error.
 
-We can do something similar with the temperature difference.  We're drawing in room temperature air at a relatively constant rate, except for a brief pause between inhaling and exhaling. Alveolar distance scales are small compared to 
+So equating the heat dumped into the air by the lungs to the heat required to raise that air to body temperature, our sketchy approximation is
+
+\[ h \Delta T_{eff} \eta_{eff} \Delta V \Delta t = \rho \Delta V c_p\Delta T
+\]
 
 
-Recall we raised the temperature of 6 L of air by 17 K in two seconds. Let air have a constant \(c_p = 1 \,\mathrm{J}\,\mathrm{g}^{-1}\,\mathrm{K}^{-1}\) and \(\rho = 1.2 \,\mathrm{kg}\,\mathrm{m}^{-3}\). We finally find \(h = \,\mathrm{W}\,\mathrm{m}^{-2}\,\mathrm{K}^{-1}\).
+Recall we raised the temperature of 6 L of air by 17 K in two seconds. Let air have a constant \(c_p = 1 \,\mathrm{J}\,\mathrm{g}^{-1}\,\mathrm{K}^{-1}\) and \(\rho = 1.2 \,\mathrm{kg}\,\mathrm{m}^{-3}\). We finally find \(h = 3\times 10^{-10}\,\mathrm{W}\,\mathrm{m}^{-2}\,\mathrm{K}^{-1}\). Clearly this is absurdly low, so something isn't right with the approach, or I made a mistake. I don't have time to take this any further though.
 
 \subsection{Heating pad}
 
@@ -98,6 +101,10 @@ Surprisingly, this is a fifteen meter cube that weighs about eleven thousand ton
 
 \subsection*{c}
 
+We've seen previously that a relatively easy to get neodymium magnet can generate a 1 Tesla field, which decays with \(r^{-3}\) and lifts at most around 10 kg against Earth's gravity. So the field energy density will go with \(r^{-6}\), and we expect the mass it can lift against gravity to do roughly the same. 
+
+Earth though is a point mass \(6\times 10^6\) meters distant. What happens if we move our magnet to that distance from the mass it's trying to lift? Generously (rather gratuitously so), let's say the magnet lifted the 10 kg mass at a distance of one meter, both to simplify the numerics and to make a point. Earth's gravity would win out over the magnet for anything more massive than \(10 \,\mathrm{kg} / (6\times 10^6)^6 \approx 10^{-40} \) kg, which is one billionth the electron mass.
+
 \section{Planck Units}
 
 The first thing to notice is that the combination \(\hbar G\) gets rid of the mass units in \(\hbar\) and \(G\), and leaves us with a combination of length and time. It's easy to see from there 
@@ -121,10 +128,25 @@ Lastly,
 \]
 
 
-\section{Systematic error in the Earth-Moon mass ratio}
+\section{Net charge of Earth}
 
-a. Suppose we're trying to measure the Earth-Moon mass ratio by characterizing the lunar orbit very precisely. At what value does the product of the net respective charges of the Earth and Moon contribute a 1\% error?
+Suppose an asteroid collides with a planet with sufficient energy to vaporize itself on impact. What fraction of its mass is ionized? What net charge does this contribute to the planet? If Earth were formed exclusively from such impacts, and there were no processes to dissipate net charge, what net charge would Earth have just from formation?
 
 
 
-\end{document}
+\subsection{Sketch of a solution}
+
+Assume the kinetic energy per atom on the asteroid is of order the chemical bond energy (as we've seen previously, about one to three eV). We might forward the possibly incorrect assumption that whatever part of the asteroid instantaneously undergoing vaporization is also locally in thermodynamic equilibrium, so that its atoms have a 1-3 eV Maxwellian velocity distribution. Out in the tail of the distribution, some fraction of atoms will have kinetic energies above 10-20 eV, where collisions start carrying enough energy to ionize them. We could assume that every atom above our cutoff energy ionizes, and ignore secondary ionization effects from the resulting electrons on the grounds that every secondary electron that a primary electron can generate costs an exponentially suppressed extra 10-20 eV.
+
+So we can get a crude upper bound on the ionization fraction this way. This doesn't give us the net charge contributed, but we can say that it can't possibly be larger than one electron charge per ionized atom.
+
+A better estimate of the net charge might come from noting that we're actually looking for collisions that leave one product gravitationally bound to the planet, and the other not.
+
+Noting that an electron has Earth escape velocity at \(3.5 \times 10^{-4}\) eV, monoatomic oxygen escapes at .01 eV, and a silicate ion like \(\mathrm{Si}\mathrm{O}_2^+\) escapes near 40 eV, basically every collisional ionization has the potential to free an electron from the planet and leave behind a positive ion, since the vast majority of these events are going to involve energies only a handful of eV above the ionization energy. I could be wrong here; maybe most of the collisions are actually within a few electron escape energies of the ionization energy, and we lose a factor of two or so to scattering angle considerations.
+
+The dominant effect is probably going to be from electrons downscattering themselves back below the escape energy. Intuition from radiation safety training says that 1 MeV beta radiation has a stopping distance in air of just a few meters, leading one to suspect not too many sub eV electrons are going to escape. Still, a realistic asteroid impact might eject a lot of mass above the atmosphere...
+
+
+
+ 
+ \end{document}
