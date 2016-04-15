@@ -1,9 +1,9 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=0.6in]{geometry}
-\title{}
-\author{}
-\date{}
+\title{Ph 239 Problem Set 2}
+\author{Alex Zahn}
+\date{4/15/2016}
 
 
 
@@ -14,6 +14,8 @@
 
 \newcommand{\wmsq}{W/\(\mathrm{m}^2\,\)}
 \newcommand{\msq}{\(\mathrm{m}^2\,\)}
+\newcommand{\micron}{\(\mu\mathrm{m}\)\,}
+\newcommand{\mcb}{\(\mathrm{m}^3\,\)}
 
 \section{Electric car solar panels}
 
@@ -25,7 +27,7 @@ A typical commute might be ten miles or fifteen kilometers one way.
 Lead acid batteries are about \$1.25 per 12V-Ah (8.5 kJ/dollar), based on a sample of one sixty dollar, 45 Ah battery I found. However, lead acid batteries are not designed to be nearly fully discharged and can be severely damaged this way. The deeper the discharge, the more usable energy we get per battery cycle, but the fewer cycles we get. Let's say the optimal discharge is 50\% of maximum storage capacity, which is where I think most car batteries are meant to operate anyway, so let's bump the battery costs up to 17 kJ/dollar.
 
 
-A typical home-use, nontracking solar array might have access to a daily average of 200 \wmsq in a building free environment and be 10\% efficent. Supposing buildings block the sun for half the day, let's say home solar panels generate  10 \wmsq
+A typical home-use, nontracking solar array might have access to a daily average of 200 \wmsq in a building free environment and be 10\% efficent. Supposing buildings block the sun for half the day, let's say home solar panels generate 10 average-\wmsq 
  
 Let's round the 4 km/kWh vehicle efficiency down by 10\% to 1 km/MJ for convenience, and keep the four dollar per peak-watt figure. Assuming a peak-watt occurs during direct sunlight of 1 k\wmsq, one average-watt of solar power costs forty dollars and requires a tenth of a square meter of collection area.
 
@@ -52,7 +54,24 @@ So we can say this process is 6\% efficient. This number is optimistic, too, bec
 
 \subsection{Space heater}
 
-Let's say this process takes three minutes. Our 1.5 kW space heater consumes 300 kJ in this time, so the space heater is maybe 13\% efficient.
+To a very first approximation, let's say this process takes three minutes. Our 1.5 kW space heater consumes 300 kJ in this time, so the space heater is maybe 13\% efficient.
+
+\subsubsection{Air-body heat transfer coefficient}
+
+Can we be more rigorous about the amount of time this takes with a 1500 watt space heater? We could try to estimate the air-body heat transfer coefficient, by the following sketchy approximation scheme.
+
+Experimenting with breathing on my hand, it seems reasonable to say that one two second long inhale-exhale cycle produces breath at about body temperature. Speeding up the inhale-exhale cycle to one second seems to produce qualitatively cooler breath, and slowing it down doesn't seem to do anything, so I will claim that  it takes two seconds to bring a lungful of 293 K air up to 310 K body temperature.
+
+Next, we want the surface area to volume ratio of a lung, which we will approximate as composed exclusively of perfectly spherical alveoli. Wikipedia claims an alveolar radius of 100 \micron after normal exhalation, yielding an upper bound on the surface area to volume ratio of \(3\times10^4 \,\mathrm{\mu m}^{-1}\).
+
+Over the course of inhalation, the alveoli will expand, and the surface area to volume ratio will drop. Again resorting to the internet, the average person's typical lung volume prior to inhaling is 2.4 L (``functional residual capacity" in lung terminology). In my tests, I think I inhaled most of a 3.6 L ``inspiratory capacity". So the lung expands from 2.4 L to 6 L, or by a factor of 2.5. The alveolar radius increases a factor of \(\sqrt[3]{2.5}\), and surface area to volume falls by the same factor, so our lower bound on surface area to volume is over 70\% of the upper bound.
+
+So now we can almost compute an estimate of the air-body heat transfer coefficient, \(h\). Sparing ourselves some lung related differential equations, suppose all the heat flow is through a constant surface area to volume ratio \(\eta_{eff} = 2.6 \times 10^4 \,\mathrm{\mu m}^{-1}\), which is at the middle of the range we found. Getting this wrong results in an error of at most 15\% in \(h\), so it isn't useful to apply more rigor than this.
+
+We can do something similar with the temperature difference.  We're drawing in room temperature air at a relatively constant rate, except for a brief pause between inhaling and exhaling. Alveolar distance scales are small compared to 
+
+
+Recall we raised the temperature of 6 L of air by 17 K in two seconds. Let air have a constant \(c_p = 1 \,\mathrm{J}\,\mathrm{g}^{-1}\,\mathrm{K}^{-1}\) and \(\rho = 1.2 \,\mathrm{kg}\,\mathrm{m}^{-3}\). We finally find \(h = \,\mathrm{W}\,\mathrm{m}^{-2}\,\mathrm{K}^{-1}\).
 
 \subsection{Heating pad}
 
@@ -63,7 +82,21 @@ This might take half an hour, consuming 90 kJ, making it nearly 50\% efficient.
 Suppose this takes one hour. A hundred watt metabolism will consume 360 kJ, and will be a little better than 10\% efficient.
 
 
-\section{•}
+\section{}
+
+\subsection*{a}
+
+\(k_ee^2/Gm_em_{p} = 2.3 \times 10^{39}\)
+
+\subsection*{b}
+
+It seems reasonable to ignore the probably small polarizability of both objects, so this appears straightforward. We want \(k_e Z^2 e^2 = Gm_{earth}m_{moon}\), where \(Z\) is the number of atoms ionized. We find \(Z=3.6\times 10^{32}\), or \(6 \times 10^8\) mol.
+
+Reusing approximations from the Martian terraforming problem, suppose we have a pure \(\mathrm{Si}\mathrm{O}_2\) crust. We end up ionizing \(2\times 10^8\) mol of crust, with a mass of \(10^7\) kg. If \(\mathrm{Si}\mathrm{O}_2\) has a density of \(3000 \,\mathrm{kg}/\mathrm{m}^3\), this takes up 3300 \mcb.
+
+Surprisingly, this is a fifteen meter cube that weighs about eleven thousand tons. I would have thought it would be a lot bigger. We can't be off by much, either; certainly there's a factor of a few error in the mass and density of the crust we need, but it's suppressed by a cube root in the cube length.
+
+\subsection*{c}
 
 \section{Planck Units}
 
@@ -86,5 +119,12 @@ Lastly,
 
 \[ T_p = \frac{E_p}{k_B} = 1.4 \times 10^{32}\,\mathrm{K}
 \]
+
+
+\section{Systematic error in the Earth-Moon mass ratio}
+
+a. Suppose we're trying to measure the Earth-Moon mass ratio by characterizing the lunar orbit very precisely. At what value does the product of the net respective charges of the Earth and Moon contribute a 1\% error?
+
+
 
 \end{document}
