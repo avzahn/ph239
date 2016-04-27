@@ -61,10 +61,47 @@ Our 200 W now has to go into \(\frac{1}{2}\rho c_d A v^3\) of drag power while p
 
 \subsection{Pebble in water}
 
-Let's go with a spherical pebble having a 2 mm radius and a mass of one gram. This has a Reynolds number of \(2000v\), so the pebble is unlikely to find itself in the viscous regime for any length of time we care about. So let's say it's a nonsmooth sphere with \(c_d=.4\) that is always in the intertial drag regime.
+Let's go with a spherical pebble having a 2 mm radius and a mass of one tenth of a gram. This has a Reynolds number of \(2000v\), so the pebble is unlikely to find itself in the viscous regime for any length of time we care about. So let's say it's a nonsmooth sphere with \(c_d=.4\) that is always in the intertial drag regime.
 
-The drag force will be \(2.25v^2 \times 10^{-4}\) N, and the weight will be \(10^{-2}\) N, yielding a terminal velocity of \(6.5\) m/s. How long does it take to reach terminal velocity from rest? Inertial drag turns on reasonably sharply, so we won't underestimate too badly by saying it accelerates uniformly under gravity alone. The acceleration time is 6.5/\(g\) = .65 seconds, during which it travels 2.1 meters. 
+The drag force will be \(2.25v^2 \times 10^{-4}\) N, and the weight will be \(10^{-3}\) N, yielding a terminal velocity of \(.65\) m/s. How long does it take to reach terminal velocity from rest? Inertial drag turns on reasonably sharply, so we won't underestimate too badly by saying it accelerates uniformly under gravity alone. The acceleration time is .65/\(g\) = .065 seconds. If the pool is three meters deep, we can approximate that the pebble is at terminal velocity for the entire trip.
 
+So the entire journey takes roughly \(3/.65 < 5 \) seconds.
+
+\subsection{}
+
+We're looking for the value of \(k\) that renders \(\frac{1}{2}\rho Av^2\frac{k\nu}{Rv}\) equal to \(6\pi\rho\nu Rv\). This is \(k=12\pi R^2/A\).
+
+We also want to know when \(c_D = k/Re = 1/2 \), which happens for \(Re = 24\pi R^2/A\)
+
+\subsection{}
+
+The terminal velocity of a sphere of radius R and density \(\rho_s\) falling in the viscous regime is
+
+\[ v = \frac{2\rho_s R^2g}{9\rho\nu}
+\]
+
+We want to pick \(R\) so that the Reynolds number at this velocity is maybe 10. We find
+
+\[ R = \sqrt[3]{\frac{45\rho \nu ^2}{\rho_s g}}
+\]
+
+A reasonable pebble density is maybe 2500 kg/m\(^3\), which gives a radius of about a tenth of a millimeter. So this is more dust grain than pebble.
+
+\section{Drag forces on the hyperloop}
+
+All of the hyperloop proposals I've seen involve a passenger capsule that takes up nearly the entire diamter of vacuum tube, so that the usual formula for intertial drag shouldn't apply; there is nowhere for the displaced air to go. If the hyperloop is going to avoid compressing the air in a 550 km long tube by a factor of \(1/\epsilon\), it's going to need to shunt air through the passenger capsule.
+
+Let's adopt the model that the capsule pushing a large scoop in front that spans the whole diameter of the vacuum tube. The scoop tapers down into a narrow bypass tube that passes through the capsule. Let these have radii \(R\) and \(r\), respectively.
+
+So to move down the tube, the capsule needs to accelerate the air in front of it by a factor of \(R^2/r^2\), and we expect the drag power to go with \(\rho v^3(R/r)^4\). 
+
+It's not inconceivable that cabin constraints inside the capsule could push R/r up to five or ten. Most hyperloop proposals call for getting down to 1\% of atmospheric pressure. Something seems off here.
+
+Additionally, for a 600 mph hyperloop, this means the bypassed air could come out behind the capsule at over 2600 m/s, which is going to be over five times the rms velocity of air molecules at room temperature. What kind of energy losses to heating might there in the process of accelerating the bypass air to the requisite speed?
+
+Maybe we can redeem the hyperloop by going to lower vacuum. How hard a vacuum do we need, and how difficult would it be to maintain? What about to initially create?
+
+A 550 km LA-San Franscisco hyperloop built out of 10 m long tube segments that attach with a 10 micron gap between them will have a leakage area of 1.5 square meters at if it has a 1 meter radius. If molecular velocities in air are of order 500 m/s, we could work out the cost in electricity to keep maintain the vacuum. 
 
 
 \end{document}
