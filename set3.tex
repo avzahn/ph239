@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.6in]{geometry}
+\title{Ph 239 Problem Set 3}
+\author{Alex Zahn}
+\date{4/22/2016}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+\newcommand{\wmsq}{W/\(\mathrm{m}^2\,\)}
+\newcommand{\msq}{\(\mathrm{m}^2\,\)}
+\newcommand{\micron}{\(\mu\mathrm{m}\)\,}
+\newcommand{\mcb}{\(\mathrm{m}^3\,\)}
+
+
+\section{Capillary Action}
+
+Start as usual by guessing the relevant quantities. We have a hint that one is \(\gamma \,\mathrm{kg}\,\mathrm{s}^{-2}\). The radius \(r\) of the tube, seems reasonable to include since we expect the height, \(h\), to which the fluid rises to fall with \(r\). Similarly, \(h\) should fall when we turn up the gravitational force on the fluid, so let's include \(\rho\) and \(g\). So let's turn the Buckingham pi crank on \(h\),\(\gamma\),\(r\),\(\rho\), and \(g\).
+
+The obvious choice for \(\pi_1\) is \(h/r\). We can guess right away \(\pi_2\) involves \(\gamma/\rho\) just from trying to get rid of the mass units. The simplest move from there is to say \(\pi_2 = \gamma/\rho g r^2\). \(\pi_1 = \pi_2\) becomes the simplest way to create a relation that fits our basic intuition for the problem, and we find
+
+\[ h \approx \frac{\gamma}{\rho g r}
+\]
+
+\section{Gravity Waves}
+
+Let's go with a really crappy negative first order intuition before trying to be more formal. Is there a characteristic energy density scale for the wave? Two candidates come to mind. One is the potential density at the top of the wave. The other is the kinetic energy density obtained from just keeping up with the wave velocity. I can't think of any reason they shouldn't be similar, so why not claim \( \frac{1}{2}\rho v^2 = O(\rho g h) \) ? This gives us \(v\approx \sqrt{2gh}\), which at least gives us a baseline to compare a Buckingham Pi result to.
+
+Now let's try to find \(v\) inside the Buckingham Pi formalism. The wavelength \(\lambda\) is something we can estimate directly from experience, which suggests we really should be hunting for the wave frequency, and then calculating \(v\) as \(\lambda \omega / 2\pi\).
+
+What variables might we throw into the dimensional analysis blender? We've just seen \(\rho\) is probably less important than it seems at first, so let's only add it in if we have to. \(h\) and \(g\) seem relevant, especially given the above. Our result should not depend on the water depth (waves don't seem different whether over lakes or deep ocean trenches, and the sound speed in water would prevent the waves from communicating with the bottom on relevant timescales anyway), so let's exclude that. What about fluid properties of water? Viscosity and compressibility are potential candidates. Water is incompressible, so the compressibility shouldn't be one of our first choices, though I would imagine it's important in the general case. The Reynolds number for a water wave of a few meters in length moving at a few meters per second is going to be pretty far out of the viscous regime, so we may as well throw out the viscosity too.
+
+We could try the sound speed, \(c\), though. Besides happening to make the dimensional analysis problem easy, including it potentially allows us to create a theory that keeps \(v < c\). So blend \(g\), \(h\), and \(c\) against \(\omega\), and try \(\pi_1 = \omega h /c\) and \(\pi_2 = hg/c^2\). \(\omega\) should increase with \(g\), so let's claim we want \(\pi_1 \approx \pi_2\), which yields \(\omega \approx g/c\) and \(v=\lambda g/2\pi c\).
+
+\(c\) is pretty big (1500 m/s or so), which makes this proposal a little doubtful. Even \(\lambda\) of order tens of meters would give velocities below tenths of a meter per second, which is more than a little too low. Try instead \(\pi_1 = \sqrt{\pi_2}\), which gives \(v = \lambda\sqrt{g/4\pi^2h}\).
+
+Let's test this out on one meter tall wave, with \(\lambda = 3 \) meters. Our Buckingham Pi approximation gives \(v\approx 1.5\) m/s, while the energy scale argument gets closer to 8 m/s, which is on the high end. The disagreement actually is surprisingly small for the dimensional analysis approach; there are believable \((h,\lambda)\) pairs that can bring them a lot closer together. 
+
+\section{Bicycle Speeds}
+
+\subsection{Flat road}
+
+A bicycle probably gets a pretty terrible drag coefficient. We can approximate its drag properties as those of a human trying as hard as possible to pretend to be aerodynamic, so I would guess we're somewhere just below the man-bear-pig regime here. \(c_d = 1\) seems reasonable. The cyclist probably presents a 1 by .4 meter cross section to the airflow, so assume we  have \(A = .4 \, \mathrm{m}^2\).
+
+The drag power is \(\frac{1}{2}\rho c_d A v^3\), and a 200 W power output gives us a top speed of 9.5 m/s, or a little over 20 mph. This puts us very close to realistic cycling performance; a fairly average person with less than a month of training will probably be able to sustain 20 mph or 200 W on flat roads for tens of minutes to an hour. The intuition to be gained here then is that rolling resistance from the bicycle can be safely ignored.
+
+\subsection{Downhill Coasting}
+
+Let's go with a 10\% grade, mostly because \(mg\sin(\arctan(.1)) \approx m\). Let's say \(m=70\) kg, which is a fairly light bicycle-cyclist combination. We get a coasting speed of about 17 m/s.
+
+\subsection{Hill Climbing}
+
+Our 200 W now has to go into \(\frac{1}{2}\rho c_d A v^3\) of drag power while putting \(mgv\) into the gravitational field. Experience suggests the drag term is negligible. Working against gravity alone, we get \(v=2/7\) m/s, which does indeed make \(v^3\) negligible. So at 200 W, we're in the three seconds per meter regime.
+
+\section{Drag Regimes}
+
+\subsection{Pebble in water}
+
+Let's go with a spherical pebble having a 2 mm radius and a mass of one gram. This has a Reynolds number of \(2000v\), so the pebble is unlikely to find itself in the viscous regime for any length of time we care about. So let's say it's a nonsmooth sphere with \(c_d=.4\) that is always in the intertial drag regime.
+
+The drag force will be \(2.25v^2 \times 10^{-4}\) N, and the weight will be \(10^{-2}\) N, yielding a terminal velocity of \(6.5\) m/s. How long does it take to reach terminal velocity from rest? Inertial drag turns on reasonably sharply, so we won't underestimate too badly by saying it accelerates uniformly under gravity alone. The acceleration time is 6.5/\(g\) = .65 seconds, during which it travels 2.1 meters. 
+
+
+
+\end{document}
