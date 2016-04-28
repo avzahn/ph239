@@ -17,6 +17,13 @@
 \newcommand{\micron}{\(\mu\mathrm{m}\)\,}
 \newcommand{\mcb}{\(\mathrm{m}^3\,\)}
 
+\section{Bird Migration}
+
+\subsection{Worst case energy requirements}
+
+It's probably safe to put our theoretical bird in the lift force equals drag force regime. 
+
+
 \section{Raindrop Size}
 
 Lacking much intuition for the mechanics of raindrop collapse, let's try dimensional analysis on the surface tension and the intertial drag at terminal velocity. The simplest collapse condition we can propose is 
@@ -24,8 +31,14 @@ Lacking much intuition for the mechanics of raindrop collapse, let's try dimensi
 \[ \gamma r = F_{d,term}
 \]
 
-where \(r\) is some characteristic length scale describing the largest raindrop. Determining \(F_{d,term}\) is potentially subtle, since the pre-collapse deformation of the raindrop is going to certainly change the drag coefficient and the terminal velocity. Let's skip all that and say that the raindrop is always a sphere of radius \(r\) and \(c_D = .5\).
+where \(r\) is some characteristic length scale describing the largest raindrop. Taking the raindrop to be spherical, \(F_{d,term} = mg = \frac{4}{3}\pi r^3 \rho g\), and
 
+\[ r = \sqrt{\frac{3\gamma}{4\pi\rho g}} \approx 1.3 \, \mathrm{mm}
+\]
+
+This seems reasonably in line with personal experience, although the internet claims giant 4-5 mm raindrops have been observed during tropospheric research flights. A little more digging reveals that raindrop theorists (apparently a real thing!) believe typical raindrop size to be formation statistics limited, rather than ram pressure limited.
+
+So this estimate is not especially convincing. 
 
 
 
