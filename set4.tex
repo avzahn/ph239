@@ -23,6 +23,41 @@
 
 It's probably safe to put our theoretical bird in the lift force equals drag force regime. 
 
+\subsection{Getting a free ride}
+
+It's not hard to believe that the bird doesn't need to spend any energy at all if it spends the entire trip gliding between thermals. Sailplanes, for example, have had the ability to stay aloft for longer than a pilot can stay awake since the late 1930s. Apparently, some number of endurance contests in 1938 and 1939 lasted over three days, and ended in multiple pilot deaths.
+
+Still, most extremely long range migratory birds spend most of their time over open ocean, where they can't exploit all the terrain induced complexity of the airflow that sailplanes use. Is it order of magnitude reasonable that migratory birds can get a free ride off convective phenomena?
+
+\subsubsection{Atmospheric Convection}
+
+Our goal is to estimate the fraction of solar flux that goes into atmospheric convection. Projecting my own ignorance onto the problem, I would guess that this is essentially a result of atmospheric infrared absorption.
+
+Let's say that the solar flux is all optical, and that we maintain thermal equilibrium by re-radiating all non reflected optical flux as infrared into space. If we didn't have infrared absorption, this would be the end of the story. I think more realistically, infrared that originates at lower altitude ends up partially absorbed mostly at higher altitudes. If the mean atmospheric temperature as a function of altitude is fixed, however, we can't dump this absorbed flux into space by letting the atmosphere heat up.
+
+
+
+
+Consider the incident solar flux as a function of altitude, \(f(z)\). We might expect \(\frac{df}{dz} = \alpha \rho f\), where \(\alpha\) is a dimensioned constant. Suppose \(\rho\) is exponentially decaying with scale height \(z_0\), and that we know \(f(0)\) and \(f(\infty)\). We might guess
+
+\[ f = \left( \frac{f_0}{f_\infty} \right)^{\beta(z)}f_{\infty}
+\]
+
+where
+
+\[ \beta = e^{-z/z_0}
+\]
+
+It so happens this solution works, with
+
+\[\alpha = -\frac{1}{\rho_0 z_0}\log(f_0/f_\infty)
+\]
+
+Suppose the atmosphere is in thermal equilibrium at \(T = 285\) K above a perfectly reflecting planetary surface. All of the flux \(f_\infty - f_0\) has to be radiated back into space.
+
+\subsubsection{Earth Albedo}
+
+
 
 \section{Raindrop Size}
 
