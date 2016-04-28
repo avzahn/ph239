@@ -27,35 +27,44 @@ It's probably safe to put our theoretical bird in the lift force equals drag for
 
 It's not hard to believe that the bird doesn't need to spend any energy at all if it spends the entire trip gliding between thermals. Sailplanes, for example, have had the ability to stay aloft for longer than a pilot can stay awake since the late 1930s. Apparently, some number of endurance contests in 1938 and 1939 lasted over three days, and ended in multiple pilot deaths.
 
-Still, most extremely long range migratory birds spend most of their time over open ocean, where they can't exploit all the terrain induced complexity of the airflow that sailplanes use. Is it order of magnitude reasonable that migratory birds can get a free ride off convective phenomena?
+Still, most extremely long range migratory birds spend most of their time over open ocean, where they can't exploit all the terrain induced complexity of the airflow that sailplanes use. Also, endurance sailplanes don't have a destination to reach; they can find a favorable spot and then just stay there. Is it order of magnitude reasonable that migratory birds can get a free ride off convective phenomena?
 
 \subsubsection{Atmospheric Convection}
 
-Our goal is to estimate the fraction of solar flux that goes into atmospheric convection. Projecting my own ignorance onto the problem, I would guess that this is essentially a result of atmospheric infrared absorption.
+Our goal is to estimate the fraction of solar flux that goes into atmospheric convection. Projecting my own ignorance onto the problem, I would guess that for earthlike conditions, this is essentially a result of atmospheric infrared absorption.
 
-Let's say that the solar flux is all optical, and that we maintain thermal equilibrium by re-radiating all non reflected optical flux as infrared into space. If we didn't have infrared absorption, this would be the end of the story. I think more realistically, infrared that originates at lower altitude ends up partially absorbed mostly at higher altitudes. If the mean atmospheric temperature as a function of altitude is fixed, however, we can't dump this absorbed flux into space by letting the atmosphere heat up.
+Convective flows should arise when diffusive and radiative heat transport are insufficient to maintain hydrostatic equilibrium. So I instinctively blame convective flows primarily on differential heating processes.
+
+Let's say that the solar flux is all optical, and that we maintain planetary thermal equilibrium by re-radiating all non reflected optical flux as infrared into space. If the atmosphere were imperfectly transparent to IR, we would find a radiative cooling bottleneck around denser regions of the atmosphere which should generate a differential heating effect.
+
+The total flux available to this differential heating process should be at most \(A \sigma T^4\), where \(A\) is the IR absorption of the entire atmospheric column. Let's divide this by two to imperfectly account for the fact that most of the IR won't see nearly that before making it to space.
+
+Let \(F\) be the solar constant and \(R\) be Earth's albedo. We should have \(\sigma T^4 \approx (1-R)F/4\). Using \(R\) of about 30\%, this is about 230 \wmsq. \(A\) is about 20\% for Earth's atmosphere, so we end up with at most 23 \wmsq available in wind power. Interestingly, this comes out to the same value seen in the third lecture.
+
+\subsubsection{Mean convective velocity}
+
+Naively distributing all the convective flux evenly over the first scale height, we have a power density of three milliwatts per cubic meter. The smallest velocity we can make out of this is the viscous terminal velocity of a differential volume.
 
 
 
 
-Consider the incident solar flux as a function of altitude, \(f(z)\). We might expect \(\frac{df}{dz} = \alpha \rho f\), where \(\alpha\) is a dimensioned constant. Suppose \(\rho\) is exponentially decaying with scale height \(z_0\), and that we know \(f(0)\) and \(f(\infty)\). We might guess
 
-\[ f = \left( \frac{f_0}{f_\infty} \right)^{\beta(z)}f_{\infty}
-\]
+%Consider the incident solar flux as a function of altitude, \(f(z)\). We might expect \(\frac{df}{dz} = \alpha \rho f\), where \(\alpha\) is a dimensioned constant. Suppose \(\rho\) is exponentially decaying with scale height \(z_0\), and that we know \(f(0)\) and \(f(\infty)\). We might guess
 
-where
+%\[ f = \left( \frac{f_0}{f_\infty} \right)^{\beta(z)}f_{\infty}
+%\]
 
-\[ \beta = e^{-z/z_0}
-\]
+%where
 
-It so happens this solution works, with
+%\[ \beta = e^{-z/z_0}
+%\]
 
-\[\alpha = -\frac{1}{\rho_0 z_0}\log(f_0/f_\infty)
-\]
+%It so happens this solution works, with
 
-Suppose the atmosphere is in thermal equilibrium at \(T = 285\) K above a perfectly reflecting planetary surface. All of the flux \(f_\infty - f_0\) has to be radiated back into space.
+%\[\alpha = -\frac{1}{\rho_0 z_0}\log(f_0/f_\infty)
+%\]
 
-\subsubsection{Earth Albedo}
+%Suppose the atmosphere is in thermal equilibrium at \(T = 285\) K above a perfectly reflecting planetary surface. All of the flux \(f_\infty - f_0\) has to be radiated back into space.
 
 
 
@@ -71,9 +80,7 @@ where \(r\) is some characteristic length scale describing the largest raindrop.
 \[ r = \sqrt{\frac{3\gamma}{4\pi\rho g}} \approx 1.3 \, \mathrm{mm}
 \]
 
-This seems reasonably in line with personal experience, although the internet claims giant 4-5 mm raindrops have been observed during tropospheric research flights. A little more digging reveals that raindrop theorists (apparently a real thing!) believe typical raindrop size to be formation statistics limited, rather than ram pressure limited.
-
-So this estimate is not especially convincing. 
+This seems reasonably in line with personal experience, although the internet claims giant 4-5 mm raindrops have been observed during tropospheric research flights. A little more digging reveals that raindrop theorists (apparently a real thing!) believe the raindrop size distribution to be set by formation collision statistics, rather than aeromechanical constraints. So this estimate is not especially convincing. 
 
 
 
