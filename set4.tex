@@ -21,11 +21,13 @@
 
 \subsection{Worst case energy requirements}
 
-It's probably safe to put our theoretical bird in the lift force equals drag force regime. 
+Presumably, the bird in question migrates professionally. 
+
+It's probably safe to put our theoretical bird in the lift force equals drag force regime. Let's give the bird a one meter wing span, 20 cm wing chord, .03 drag coefficient, and 300 g mass. Presumably this bird migrates professionally, so let's give it a 40:1 glide ratio
 
 \subsection{Getting a free ride}
 
-It's not hard to believe that the bird doesn't need to spend any energy at all if it spends the entire trip gliding between thermals. Sailplanes, for example, have had the ability to stay aloft for longer than a pilot can stay awake since the late 1930s. Apparently, some number of endurance contests in 1938 and 1939 lasted over three days, and ended in multiple pilot deaths.
+It's not hard to believe that the bird doesn't need to spend any energy at all if it spends the entire trip gliding between thermals. Sailplanes, for example, have had the ability to stay aloft for longer than a pilot can stay awake since the late 1930s.
 
 Still, most extremely long range migratory birds spend most of their time over open ocean, where they can't exploit all the terrain induced complexity of the airflow that sailplanes use. Also, endurance sailplanes don't have a destination to reach; they can find a favorable spot and then just stay there. Is it order of magnitude reasonable that migratory birds can get a free ride off convective phenomena?
 
@@ -41,9 +43,10 @@ The total flux available to this differential heating process should be at most 
 
 Let \(F\) be the solar constant and \(R\) be Earth's albedo. We should have \(\sigma T^4 \approx (1-R)F/4\). Using \(R\) of about 30\%, this is about 230 \wmsq. \(A\) is about 20\% for Earth's atmosphere, so we end up with at most 23 \wmsq available in wind power. Interestingly, this comes out to the same value seen in the third lecture.
 
-\subsubsection{Mean convective velocity}
+\subsubsection{Wind farming birds}
 
-Naively distributing all the convective flux evenly over the first scale height, we have a power density of three milliwatts per cubic meter. The smallest velocity we can make out of this is the viscous terminal velocity of a differential volume.
+Naively distributing all the convective flux evenly over the first scale height, we have a power density of three milliwatts per cubic meter. This is probably a low estimate, because experience says that wind power density varies substantially with altitude, but we're also using a high upper bound for the convective flux, so maybe it's reasonable.
+
 
 
 
@@ -80,7 +83,29 @@ where \(r\) is some characteristic length scale describing the largest raindrop.
 \[ r = \sqrt{\frac{3\gamma}{4\pi\rho g}} \approx 1.3 \, \mathrm{mm}
 \]
 
-This seems reasonably in line with personal experience, although the internet claims giant 4-5 mm raindrops have been observed during tropospheric research flights. A little more digging reveals that raindrop theorists (apparently a real thing!) believe the raindrop size distribution to be set by formation collision statistics, rather than aeromechanical constraints. So this estimate is not especially convincing. 
+This seems reasonably in line with personal experience for dimensional analysis, although the internet claims giant 4-5 mm raindrops have been observed during tropospheric research flights. A little more digging reveals that raindrop theorists (apparently a real thing!) believe the raindrop size distribution to be set by formation collision statistics, rather than aeromechanical constraints.
+
+So this estimate is not especially convincing. It seems doubtful also that we get an extra factor of three out of this by going to a nonspherical geometry---the volume as a function of \(r\) would need to drop by a factor of nine. The most improvement I think we can make is from trying \(\gamma \pi r = mg\) to get \(r=2.3\) mm; I'm not willing to believe that the characteristic distance scale is larger than a half circumference. 
+
+\subsection{A second attempt}
+
+Forced to develop some intuition for the mechanics of raindrop collapse, let's consider the pressure distribution over the windward face of a raindrop. If it's approximately spherical, we expect the pressure to go with \(\cos\theta\), where \(\theta\) is the angle to the downward vertical. The average pressure has to yield a force on the raindrop of \(mg\), so we find \(p = 2mg\cos\theta/\pi r^2 = 8\rho g r \cos\theta/3\)
+
+The largest pressure differential is \(8\rho gr/3\), between the center and the edges of the drop. If we claim that this has to act over a distance \(r\), dimensional analysis suggests that \(\gamma = r\Delta p \), and
+
+\[ r = \sqrt{\frac{3\gamma}{8\rho g}} \approx 1.6\,\mathrm{mm}
+\]
+
+Failure again, but we might be able to waive \(\Delta p\) down by a quite a lot if some interplay of edge and boundary layer effects can increase the pressure seen at the edges and raise it at the center. So maybe this second approach is still bad, but not necessarily a dead end.
+
+\subsection{One last try}
+
+Maybe the limiting effect here isn't actually ram pressure at all. Suppose that airflow induced disturbances over the surface of the drop are actually capillary waves with a phase velocity similar to the descent velocity. Collapse might occur when the wavelength of these waves at terminal velocity approaches the perimeter of the raindrop.
+
+Of course, this isn't a one or even two dimensional capillary wave problem. Capillary waves will drive compression waves through the interior of the raindrop, which will bounce around and interfere with the capillary waves. Finding the lowest frequency mode of a raindrop could be challenging, and there is no guarantee that it will survive into the large amplitude regime where largescale deformations of the raindrop become relevant. Worse yet, all this ignores the interaction of large modes with the airflow...
+
+\section{Shape of a Raindrop}
+
 
 
 
