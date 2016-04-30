@@ -21,9 +21,17 @@
 
 \subsection{Worst case energy requirements}
 
-Presumably, the bird in question migrates professionally. 
+\subsubsection{Average speed}
 
-It's probably safe to put our theoretical bird in the lift force equals drag force regime. Let's give the bird a one meter wing span, 20 cm wing chord, .03 drag coefficient, and 300 g mass. Presumably this bird migrates professionally, so let's give it a 40:1 glide ratio
+This is actually a little subtle, since the bird's migration path is not going to be nearly direct. Below, we see that the bird is probably going to spend most of its time gliding, so let's abandon accuracy and consider the case where a bird pretends to be a very small jetliner, and takes the direct route.
+
+An arctic tern can apparently cover 90,000 km in a year. Migrating twelve hours per day, we get an average speed of 6 m/s.
+
+\subsubsection{flight power}
+
+Wikipedia gives a 130 g mass for an artic tern. A reasonable angle of attack might be .3 radians. In the lift force equals drag force regime, this gives us a flight power of \(mg\theta v = 2.3\) W, or about .2 grams of fat per hour. That's about 2\% of body mass per day, which seems unsustainable---the bird would need to find (and then carry while digesting) 20\% of its body mass in fat per day. 
+
+
 
 \subsection{Getting a free ride}
 
@@ -47,8 +55,58 @@ Let \(F\) be the solar constant and \(R\) be Earth's albedo. We should have \(\s
 
 Naively distributing all the convective flux evenly over the first scale height, we have a power density of three milliwatts per cubic meter. This is probably a low estimate, because experience says that wind power density varies substantially with altitude, but we're also using a high upper bound for the convective flux, so maybe it's reasonable.
 
+What volume, \(V_{eff}\), can the bird harvest this energy from? \(A_{eff} = mg/\rho v^2 \theta = .12\) m, so it's very difficult to imagine contriving an effective length that brings \(V_{eff}\) especially close to one cubic meter. Even if we optimistically do harvest from a cubic meter, we end up only offsetting the flight power requirements by a little over 10\%. 
+
+So the point here is that the bird is probably going to have to deviate significantly from a direct route, if it wants to make effective use of convective power. Just taking the direct route and hoping to make do with the average available power won't do at all.
+
+Supposing though the bird can get an altitude gain of 1 km from a typical ocean thermal, it's not unreasonable that the migration is still free. With a 40:1 glide ratio, it seems plausible that the bird will be able to glide between them.
 
 
+\section{737 Fuel Economy}
+
+\subsection{Aircraft Mass}
+
+\subsubsection{Extrapolating from the 747}
+
+A 737 might carry about 150 passengers (30 m length, one row per meter, six seats per row, less a few for non passenger space and more expensive seating), and a 747 might carry about 600 (ten seats per row, 60 m length). If the takeoff mass per passenger is about the same for both (it probably isn't, but try anyway) a 300 metric ton 747 implies a 75 metric ton 737. This method is probably especially terrible, since I'm sure there are lots of different cabin configurations.
+
+A 737 has about a 30 m wingspan, and a 747 has a 70 m wingspan. We might crudely guess a 125 metric ton mass for the 737 this way.
+
+
+\subsubsection{Tire Footprint}
+
+Looking at images of 737s on the ground, there are six tires: four large (1 m radius?) in the rear and two smaller (.5 m radius?) tires in the front. Let's put tire width at half a radius for all of them. It's pretty hard to see the tire footprint, so I would guess that the tires aren't deflected by more than 5 cm, and that the length of the footprint will be roughly the same. If the tires inflate to 200 psi (13 atm or 1300 kPa), we get a 100 metric ton mass.
+
+This is a very round number, and conveniently between the two previous estimates, so I'll go with that one.
+
+\subsection{Drag}
+
+The only reason I can think of to claim that a 737 has a significantly different drag coefficient than a 747 is that the 737 should operate at about half the reynolds number at cruise, so maybe the 747 does slightly better. Commercial passenger aircraft are almost certainly in the regime where drag coefficient is largely insensitive to Reynolds number, otherwise a discount airline like Southwest would be operating A380s exclusively.
+
+We've already seen that we can ignore fuselage related contributions to the drag coefficient from the previous analysis of the 747, so I'm going to claim both aircraft are the same, and settle on \(c_D = .03\) for the 737.
+
+For the drag area, let's use the 3 m wing chord times the 30 m wingspan.
+
+\subsection{Engine Power}
+
+Let's use the same .1 radian angle of attack as the 747. We can estimate now that the lift power at a 580 mph cruise is going to be one third of the roughly 36 MW we saw for the 747. Assuming we're in the lift equals drag regime, we estimate this way that a 737 expends 24 MW.
+
+We could also estimate a drag power of 26 MW, and then guess between 26+12 = 38 MW and 26\(\times\)2 = 52 MW
+for the total power requirement, but I really don't trust the drag estimate at all. Be it decided then, a 737 consumes 24 MW.
+
+\subsection{Engine Efficiency}
+
+Suppose a car engine operates at half the Carnot efficiency. It may or may not be reasonable to claim that a jet engine does the same, but I'll do it anyway. Then if a car engine is 30\% efficient in 300 K air and gasoline has a similar combustion temperature to jet fuel, we have \(T_h = 750\) K, and a jet engine in 225 K air might be 35\% efficient.
+
+After working out the fuel requirements of a 737 with this number, it seems too low. We can reason though that a Carnot engine would be 70\% efficient, and just optimistically claim that as our efficiency.
+
+Putting the losses to nonideality at zero in retrospect isn't all that ridiculous. Consider that if large turbine engines weren't significantly more ideal than car engines, we probably wouldn't use a long range power grid for our cities, instead opting to avoid transmission losses by using more local power generation. At any rate, the efficiency of a jet engine deserves its own question.
+
+\subsection{Fuel Economy}
+
+So we're consuming 24 MW to travel at 580 mph (at cruise, anyway---on shorter flights, we probably spend a significant fraction of the trip climbing and descending).
+
+Assuming jet fuel has gasoline's 30 kWhr/gal energy density, a 737 burns 800 gallons per hour, and gets about .7 miles per gallon. We have 150 passengers though, and we end up with about one hundred passenger miles per gallon.
 
 
 
@@ -68,6 +126,10 @@ Naively distributing all the convective flux evenly over the first scale height,
 %\]
 
 %Suppose the atmosphere is in thermal equilibrium at \(T = 285\) K above a perfectly reflecting planetary surface. All of the flux \(f_\infty - f_0\) has to be radiated back into space.
+
+
+\section{Turbulent Pipe}
+
 
 
 
@@ -98,13 +160,15 @@ The largest pressure differential is \(8\rho gr/3\), between the center and the 
 
 Failure again, but we might be able to waive \(\Delta p\) down by a quite a lot if some interplay of edge and boundary layer effects can increase the pressure seen at the edges and raise it at the center. So maybe this second approach is still bad, but not necessarily a dead end.
 
-\subsection{One last try}
+\subsection{Other thoughts}
 
 Maybe the limiting effect here isn't actually ram pressure at all. Suppose that airflow induced disturbances over the surface of the drop are actually capillary waves with a phase velocity similar to the descent velocity. Collapse might occur when the wavelength of these waves at terminal velocity approaches the perimeter of the raindrop.
 
-Of course, this isn't a one or even two dimensional capillary wave problem. Capillary waves will drive compression waves through the interior of the raindrop, which will bounce around and interfere with the capillary waves. Finding the lowest frequency mode of a raindrop could be challenging, and there is no guarantee that it will survive into the large amplitude regime where largescale deformations of the raindrop become relevant. Worse yet, all this ignores the interaction of large modes with the airflow...
+Of course, this isn't a one or even two dimensional capillary wave problem. Capillary waves will drive compression waves through the interior of the raindrop, which will bounce around and interfere with the capillary waves. Finding the lowest frequency mode of a raindrop could be challenging, and there is no guarantee that it will survive into the large amplitude regime where largescale deformations of the raindrop become relevant. 
 
-\section{Shape of a Raindrop}
+\section{\(A_{\mathrm{eff}}\) from viscosity}
+
+The downward component of streamlines far beneath an airfoil give the distinct impression of a viscous phenomenon. How might a philosopher hobo from the golden age of train hopping estimate \(A_{\mathrm{eff}}\) from first principles?
 
 
 
