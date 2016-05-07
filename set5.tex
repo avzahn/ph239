@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.6in]{geometry}
+\title{Ph 239 Problem Set 5}
+\author{Alex Zahn}
+\date{5/6/2016}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+\newcommand{\wmsq}{W/\(\mathrm{m}^2\,\)}
+\newcommand{\msq}{\(\mathrm{m}^2\,\)}
+\newcommand{\micron}{\(\mu\mathrm{m}\)\,}
+\newcommand{\mcb}{\(\mathrm{m}^3\,\)}
+
+
+\section{Breaking Storm Waves}
+
+In deep water, a wave with a phase velocity set by a 10 m/s wind gives us a wavenumber \(g/v^2 = .1\, \mathrm{m}^{-1}\), and a wavelength of \(20\pi \approx 60\) m.
+
+The group velocity for deep water gravity waves is half the phase velocity, so it takes about four days to cross the 2000 km to shore.
+
+Depending on how you exactly define the geometry of the 2000 km shore distance, the storm generates a 2300 to 2400 km long wavefront at the shore. Let's use 2400 km. Wave energy goes with the square of the peak to peak amplitude. Ignoring dissipative effects, we expect \(A_{shore} = A_0\sqrt{\ell_0/\ell_{shore}}\approx 1.5\) m, with \(A=10\)  m and \(\ell_0 = 50 \) km, just before reaching the shallows.
+
+Recalling \(\omega = \sqrt{gk}\) in deep water, we should have a deep water wave period of about 6.3 seconds.
+
+In shallow water, the phase and group velocities converge to \(\sqrt{gd} \approx 3.2\) m/s, for \(d=1\) m. Notice that this means that wavecrests in the deep water group propagate all the way to shore once they reach the nondispersive shallows, becoming their own wavegroup, so to speak. We can use this to guess the shallow water wavelength. Crests approach the shallows at the 10 m/s phase velocity, gaining on the shallow wave group on the shallow-deep interface at at about 7 m/s, initially separated by a 60 m wavelength. The deep wavecrest covers this distance in a 6.3 s deep water period, at the end of which the shallow group has traveled 20 m, and they start moving together. So the shallow wavelength is 20 m, but the wave period divides out a shallow group velocity, and it seems is conserved.
+ 
+\section{Lowest mode of a juice blob}
+
+Since we need to conserve momentum, the lowest mode has a wavelength half the circumference of the blob, which we should take to be spherical. Let's model the disturbance as a shallow capillary wave, with a depth equal to the diameter of the sphere.
+
+We have \( \omega^2 = \gamma k^4 d /\rho \) so that
+
+\[ T_0 = 2\pi \sqrt{\frac{\rho r^3}{32 \gamma}}
+\]
+
+For r = 2 cm, we have a .37 second period. For 1 cm, this is .13 seconds, and for 3 cm it's .7 seconds. There's a nice 4K video of a water droplet on the ISS on youtube that I tried to sanity check this against, but unfortunately it's hard to judge the drop radius. I guess their drop has a radius between one and three centimeters and a period of about a half a second, so this seems all within the realm of plausibility.
+
+\section{Liquid water in the gaseous approximation}
+
+Water has molecular mass of 18 amu (\(3\times 10^{-26}\) kg), and a density of 1000 kg/\mcb, yielding a number density \(n = 3.5 \times 10^{28} \,\mathrm{m}^{-3}\) and molecular velocity \(v = \sqrt{3kT/m} \approx 380\) m/s.
+
+Assuming a two angstrom cross sectional diameter, we have a mean free path \(\ell = 9\times 10^{-10}\) m and a mean time between collisions \(\tau = 2.4 \times 10^{-12}\) s. Finally we have a diffusion constant \(D = v\ell /3 \approx 10^{-7} \,\mathrm{m^2}\)/s.
+
+This gives a diffusion time for a distance \(R = 1\) mm of \(R^2/D = 10\) s.  
+
+\section{}
+
+When we measure the effective temperature of the reflected body in the glass, we're really seeing a contribution from the glass itself and the reflected body radiation. We have
+
+\[ \sigma T_{\mathrm{eff_{ref,b}}}^4 = \sigma\varepsilon_gT_g^4+\sigma(1-\varepsilon_g)\varepsilon_b T_b^4
+\]
+
+Assuming the emissivity of the tape is unity and that it equilibrates with the glass, we can say that the table has a temperature of 20 C. We measure \(\sigma\varepsilon_bT_b^4\) directly to be \(\sigma (35\, \mathrm{C})^4\) and \(\sigma T_{\mathrm{eff_b}}^4\) to be \(\sigma (22\, \mathrm{C})^4\), finding the emissivity of the glass to be \(\varepsilon_g = .875\)
+
+The same thing happens with the reflected 14 C sky temperature:
+
+\[ \sigma T_{\mathrm{eff_{ref,s}}}^4 = \sigma\varepsilon_gT_g^4+\sigma(1-\varepsilon_g)\varepsilon_s T_s^4
+\]
+
+So the effective sky temperature is 228 K, which is consistent with being below our -20 C or 253 K detection threshold. If we assume that the sky is roughly at the same temperature as the glass, we can estimate a sky emissivity of .37.
+
+
+\section{Water mist}
+
+An interesting property of mist is that the constituent droplets don't coalesce and rain down on the ground. Why is this? At what droplet radius does this happen for garden variety water mist?
+
+One possible explanation for this is that there's a very low collision rate. Another possibility is that small enough droplets impose limits on the minimum elasticity of collisions.
+
+Suppose two droplets collide to combine. The collision will be perfectly inelastic, and we are going to dump kinetic energy into vibrational modes. Presumably the combined droplet will dissociate if that vibrational energy approaches some energy at the surface energy scale \(A\gamma\)---we end up with an elastic collision after all, and the droplets bounce off each other (though they may exchange some mass).
+
+If the collision velocities are on the order of the terminal velocity due to gravity in the viscous drag regime, can we recover a reasonable mist droplet size by imposing that they cannot undergo inelastic collisions at the resulting collision energy scales?
+
+
+
+\end{document}
