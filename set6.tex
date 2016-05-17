@@ -47,7 +47,36 @@ Moon &  348  & 542\\ \hline
 
 \end{center}
 
-\section{}
+\section{Home Heating}
+
+\subsection{Some thoughts about ceilings}
+
+A realistic house probably has some sort of attic space above its ceilings. The attic should trap quite a lot of reasonably stagnant air, and should be extremely insulative compared to the vertical walls. So let's simplify the model, and claim that the house only transfers heat through the four vertical walls, introducing a worst case error here of order 20\%.
+
+The raised floor should be almost as well insulated, so I'm going to interpret certain instances of the word ``vertical" to mean that we're only meant to consider the four vertical walls.
+
+I'll add to that interpretation that it's always night, so that we don't have to worry about different walls having a different \(h_{rad}\). This also has the advantage of making the calculation into an uppper bound, since there isn't any solar heating.
+
+\subsection{Thermal circuit}
+
+On the interior wall, we have a convective pathway with \(R_i = 1/h_{i}\), where \(h_i \approx 3\) W/m\(^2\) K . The wall itself has only a convective pathway with \(R_w = 2.1\) m\(^2\) K/W. On the exterior we find \(R_e = (h_{rad}+h_o)^{-1}\), with \(h_o \approx 5\)  W/m\(^2\) K for mostly windless conditions.
+
+The total thermal resistance of the house is \(\Omega = (R_i+R_w+R_e)/A \), and the power required to maintain some \(\Delta T = T_h - T_c\) between the interior of the house and the universe is \(P=\Delta T/\Omega\).
+
+\subsection{\(h_{rad}\)}
+
+
+Going for full back of the envelopeness, it can't hurt too badly to just take \(h_{rad} = h_o\): with \(h_o\) fixed at 5 W/m\(^2\) K, \(R_e\) is necessarily between .2 m\(^2\) K/W  (\(h_{rad} = 0\)) and 0 (\(h_{rad}=\infty\)) 
+
+So regardless of what we choose, \(R_e\) is going to be fairly small compared to \(R_i + R_w\) at 2.4  W/m\(^2\) K.
+
+This spares us deciding on a sky temperature as long as we don't have windows to contend with.
+
+\subsection{Heating Power}
+
+Having concluded \(R_e\) reasonably is .1 W/m\(^2\) K, \(\Omega = 2.5\times10^{-3}\)K/W and we end up needing 400 Watts per Kelvin of temperature difference.
+
+This yields a ten ``therm" per month energy cost to maintain a 20 C temperature difference, which ends up costing about ten dollars per month.
 
 \section{Shattering Ceramic}
 
@@ -60,18 +89,39 @@ This yields a lattice spacing \(a = 2.5 \times 10^{-10}\) m.
 
 \subsection{Typical bond energy}
 
-One guess is that a typical ceramic firing temperature of 1500 K sets the bond energy scale. This gives \(\varepsilon \approx .13\) eV (\(2\times 10^{-20}\) J), which seems low; we expect to see something in the 1 to 5 eV range from browsing a table of bond energies. Using a (probably unrealistically high) 3000 K melting point doesn't put us in the right range either. Maybe there is a large number of effective degrees of freedom to account for.
+One guess is that a typical ceramic firing temperature of 1500 K sets the bond energy scale. This gives \(\varepsilon \approx .13\) eV (\(2\times 10^{-20}\) J), which seems low; we expect to see something in the 1 to 5 eV range from browsing a table of bond energies. Using a (probably unrealistically high) 3000 K melting point doesn't put us in the right range either. Maybe there is a large number of effective degrees of freedom to account for, or else all the bond rearranging action in firing ceramic is happening in the tails of the thermal energy distribution.
 
 \subsection{Shattering energy}
 
 A coffee mug is roughly cylindrical with a 10 cm diameter and height (setting the height and diameter equal seems to be in fashion right now actually, I've noticed coffee mug form factors have evolved over time).
 
-This gives a one-sided area \(5\pi d^2/4 \approx .04 \,\mathrm{m}^2\). Breaking the mug into identical and approximately square shards of side length \(s\), with thickness \(t=\) 4 mm, each shard requires \(E_{\mathrm{shard}}=4st\varepsilon/a^2\) to create. If there are \(n\) shards, we need at minimum \(E_0 = \sqrt{n}\varepsilon\)
 
 
-\section{•}
+This gives a one-sided area \(5\pi d^2/4 \approx .04 \,\mathrm{m}^2\). Breaking it into \(n\) approximately identical squarish pieces requires roughly \(2\times \sqrt{.04}\sqrt{n} = .4\sqrt{n}\) meters of breakage.
 
+With thickness \(t=\) 4 mm, each meter of breakage requires energy input \(t\varepsilon/a^2 = 6.4 \varepsilon\times 10^{16}\) J.
 
+So the total minimum energy input required is \(2.6\varepsilon\sqrt{n} \times 10^{16}\) J.
+
+\subsection{Shattering energy fraction}
+
+Very subjectively, the immediate pre impact velocity of the mug and immediate post impact velocities of most of the shards seem comparable. I'm inclined to say that the fraction of impact energy that goes into breaking bonds is going to be low. 
+
+I tried working out an average shard kinetic energy from the area of the debris field. I ended up having to do quite a lot of fine tuning to even conserve energy, so that method probably doesn't have any useful estimation power.
+
+So I'm going to take a wild guess and say that the shattering energy fraction is 1\%.
+
+\subsection{Number of shards}
+
+Dropping a 500 g mug from 1.5 m, we have 7.5 J of impact energy. With a 1\% shattering energy fraction and \(\varepsilon = 1.3\) eV, we get just over 200 shards. This seems slightly high, but the highest believable \(\varepsilon\) of \(5\) eV gives 14 shards, so we do have a range of estimates that looks like it contains a realistic number of shards.
+
+\section{Murderous Bees}
+
+A documentary claimed that bees can kill larger more powerful intruding insects by swarming them, frying the target with their own body heat. Suppose a large wasp invades a hive of honeybees. Can the bees kill it by simply piling around and on top of it? How many bees does this take, and how many of them die in the process?
+
+The most difficult part is probably to estimate the output of an angry bee's metabolism. The rest is sort of a rehash of the first two questions.
+
+In the same vein, how many members does an antarctic colony of penguins need in order to survive with yearly casualties of less than 10\% due to the cold?
 
 
 
