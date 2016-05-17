@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.6in]{geometry}
+\title{Ph 239 Problem Set 6}
+\author{Alex Zahn}
+\date{5/13/2016}
+
+\begin{document}
+
+\maketitle
+
+\newcommand{\wmsq}{W/\(\mathrm{m}^2\,\)}
+\newcommand{\msq}{\(\mathrm{m}^2\,\)}
+\newcommand{\micron}{\(\mu\mathrm{m}\)\,}
+\newcommand{\mcb}{\(\mathrm{m}^3\,\)}
+
+
+\section{}
+
+\subsection{Effective Sky Temperature}
+
+On the moon, there isn't an atmosphere to radiate onto the sheet, so we can get away with claiming a sky temperature of 0 K. Of course there are lots of assorted astrophysical and cosmological sources in the sky, but they're negligible compared to solar radiation.
+
+On Earth, effective sky temperature should depend on lots of factors such as altitude, water vapor density, cloud coverage, cloud height, solar flux, local albedo, and zenith angle. That's too complicated to be worth estimating from first principles, so instead I'll assert that we can roughly conserve \(T_{\mathrm{sky}}/T_{\mathrm{ambient}}\) from the ice hut example. For the clear sky case, this was 255 K / 263 K. So I'll take the effective sky temperature to be 281 K for an ambient 290 K.
+
+\subsection{Equilibrium Temperature}
+
+Let the total surface area of the sheet be \(2A\). The lunar value of \(h\) is about \(0 \,\mathrm{W}\mathrm{m}^{-2}\mathrm{K}^{-1}\). For a still day, the terrestrial value could be \(5 \,\mathrm{W}\mathrm{m}^{-2}\mathrm{K}^{-1}\). \(h\) is probably slightly lower on the groundward face since it's harder for air to escape it, but hopefully we can ignore that. Take the terrestrial solar flux to be \(f = 1\) k\wmsq, and the lunar solar flux to be \(1.3\) k\wmsq. The emissivity of the ground could be .9. The dull case may as well be a perfect blackbody.
+
+\[ 2h(T-T_{\mathrm{ambient}}) + 2\sigma\varepsilon T^4 = \alpha f + \sigma(\varepsilon_{\mathrm{ground}} T_{\mathrm{ambient}}^4+T_{\mathrm{sky}}^4)
+\]
+
+We get the following table of kelvin equilibrium temperatures:
+
+\begin{center}
+
+\begin{tabular}{|l|l|l|}
+
+\hline
+
+\,& Dull & Shiny \\ \hline
+Earth &  329 & 361\\ \hline
+Moon &  348  & 542\\ \hline
+
+
+\end{tabular}
+
+\end{center}
+
+\section{}
+
+\section{Shattering Ceramic}
+
+\subsection{Lattice spacing}
+
+For simplicity, we can assume that the ceramic is actually crystalline. A reasonable density might be 2500 kg/m\(^3\). Searching for typical (home use) ceramic compositions, half the atoms seem to be oxygen, with the rest being for the most part assorted Ca, Mg, Si, Na, K, and Al; roughly half atomic mass 16 and half probably atomic mass 30. So 22.5 amu is a guess for the vertex mass.
+
+This yields a lattice spacing \(a = 2.5 \times 10^{-10}\) m.
+
+
+\subsection{Typical bond energy}
+
+One guess is that a typical ceramic firing temperature of 1500 K sets the bond energy scale. This gives \(\varepsilon \approx .13\) eV (\(2\times 10^{-20}\) J), which seems low; we expect to see something in the 1 to 5 eV range from browsing a table of bond energies. Using a (probably unrealistically high) 3000 K melting point doesn't put us in the right range either. Maybe there is a large number of effective degrees of freedom to account for.
+
+\subsection{Shattering energy}
+
+A coffee mug is roughly cylindrical with a 10 cm diameter and height (setting the height and diameter equal seems to be in fashion right now actually, I've noticed coffee mug form factors have evolved over time).
+
+This gives a one-sided area \(5\pi d^2/4 \approx .04 \,\mathrm{m}^2\). Breaking the mug into identical and approximately square shards of side length \(s\), with thickness \(t=\) 4 mm, each shard requires \(E_{\mathrm{shard}}=4st\varepsilon/a^2\) to create. If there are \(n\) shards, we need at minimum \(E_0 = \sqrt{n}\varepsilon\)
+
+
+\section{•}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
