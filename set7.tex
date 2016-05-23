@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{amsmath}
+\title{Ph 239 Problem Set 7}
+\author{Alex Zahn}
+\date{5/20/2016}
+
+\begin{document}
+
+\maketitle
+
+\newcommand{\wmsq}{W/\(\mathrm{m}^2\,\)}
+\newcommand{\msq}{\(\mathrm{m}^2\,\)}
+\newcommand{\micron}{\(\mu\mathrm{m}\)\,}
+\newcommand{\mcb}{\(\mathrm{m}^3\,\)}
+
+
+
+\section{Diving Board}
+
+Let's approximate that only the fiberglass layers are responsible for the restoring force, and that the mass of the diving board is negligible.
+
+Let \(\delta\) be the spacing between the two layers, and \(a\) and \(b\) be the cross sectional dimensions of the layers. If \(b\) is the \(y-\)extent of a layer where \(\hat{y}\) is the bending direction and \( b  \ll \delta\) we can say
+
+\[ I \approx 2  \left(\frac{\delta}{2} \right)^2 ab
+\]
+
+Let the length of the board be along \(\hat{z}\). We have
+
+\[ M = mg(L-z)
+\]
+
+Solving \(y'' = M/EI\) for \(y(0) = y'(0) = 0\) yields \(y=mgz^2(3L-z)/6EI\) and \(y_{\mathrm{max}}=y(L)=mgL^3/3EI\).
+
+Plugging in \(b=2\) mm, \(a= .5\) m, \(\delta = 3 \) cm, \(m= 70\) kg, \(L = 2\) m, and \(E = 20\) GPa, we have
+
+\begin{align*}
+y_{\mathrm{max}} &= \frac{2mgL^3}{3ab\delta^2 E} = 20\,\mathrm{cm} \\[12pt]
+f &= \frac{2.5}{2\pi}\sqrt{\frac{2g}{3y_{\mathrm{max}}}} = 2.25 \,\mathrm{Hz}
+\end{align*}
+
+So this diving board seems fairly realistic.
+
+
+
+\section{Tallest Mountain}
+
+Suppose the mountain is a cone resting on the planet surface. This geometry misses some mass at the base of a more realistic mountain, since the planet is presumably not planar. Also assume the mountain mass is negligible to the planet mass.
+ 
+Let the mountain have height \(h\) and opening angle \(\alpha\). Let \(z\) be the elevation from the planet surface. Both mountain and planet are probably made of the same material, so that
+
+\begin{align*}
+\mathrm{dm} &= \pi\rho(h-z)^2\tan^2\frac{\alpha}{2}\mathrm{dz}\\
+\mathrm{dF}(z) &= \frac{4}{3}\pi R^3 \rho \frac{G}{(z+R)^2}\mathrm{dm}
+\end{align*}
+
+That turns out to be a lot more annoying to integrate than I had initially guessed, so let's overestimate dF with \(z=0\) to find
+
+\[ \int_{z=0}^{z=h}dF = \frac{4}{9}\rho^2\pi^2 G R h^3 \tan^2\frac{\alpha}{2}
+\]
+
+The base of the mountain has area \(\pi h^2\tan^2\frac{\alpha}{2}\), so the maximal stress is \(\sigma = \frac{4}{9}\rho^2\pi G R h\).
+
+It looks like most rocks fail at around 50 MPa. Taking \(\rho = 3000 \) kg/m\(^3\), we have a maximum height of 9450 m on Earth, and 17500 m on Mars. For comparison, Mauna Kea is at 10200 m from the ocean floor to summit, and Olympus Mons is at 21230 m.
+
+So we're a bit off, especially considering that Mauna Kea has to contend with probably nontrivial pressure from the water above most of it.
+
+It's worth seeing if we can at least salvage Olympus Mons without modifying the geometry. Linearizing dF,
+
+\[\mathrm{dF} \approx \frac{4}{3}\pi R^3 \rho G \left(\frac{1}{R^2}+\frac{2z}{R^3}\right)\mathrm{dm}
+\]
+
+We end up with
+\[ \sigma = \frac{2}{9}Gh(2R-h)\pi \rho^2
+\]
+
+which yields
+
+\[ h= R-\frac{1}{G\rho^2}\sqrt{G^2\rho^4 R^2 -\frac{9}{2\pi}G\rho^2\sigma}
+\]
+
+This ends up being a lot of effort to only gain an extra hundred meters of Martian mountain elevation. So the conical geometry has to be wrong for Olympus Mons, noting after the fact that we actually underestimated the Martian density. This isn't particularly concerning, since we can pick a pointier geometry with a lower volume for the same height and base area. It just means Olympus Mons and Mauna Kea probably aren't very conical, which I guess is a nice factoid.
+
+We could also extract some extra base area for the mountain and increase the elevation limit by noting that the base actually follows the spherical planetary surface, not a plane. Olympus Mons has a roughly France sized base, so there's probably at least a few extra percent elevation hiding there. Considering though that \(\rho\) and \(\sigma\) are complete guesses, this is probably satisfactory.
+
+Finally, let's use the fancier formula for \(h\) to get that \(h=R\) for
+
+\[ R = \sqrt{\frac{9\sigma}{2\pi\rho^2 G}} \approx 3450\,\mathrm{km}
+\]
+
+
+
+\section{Wooden Ship Masts}
+
+\subsection{Ship Model}
+
+Let's adopt a 50 m mast with five rectangular sails. Choosing the sail areas is going to heavily bias results, but suppose that each sail has half the area of the sail below with the same aspect ratio, and that the lowermost sail is 30 m wide. So the largest sail is 18 by 30 m, and the smallest sail 4.5  by 7.5 m.
+
+Horizontal supports run the upper boundary of each sail. We could actually estimate their radii from structural demands we can guess at, but that kind of precision seems ridiculous given the above. Instead, we could guess from images of people climbing on them that the largest have a 25 cm radius. Scaling down the radii by the same \(\sqrt{2}\) per rung, the topmost horizontal beam has a 6.25 cm radius.
+
+It's useful to note \(\sum_0^4 2^{-n} = 1.94\) and \(\sum_0^4 \sqrt{2}^{-n} = 2.81\).
+
+\subsection{Drag Coefficients}
+
+A sail probably has a drag coefficient somewhere over 2. Wikipedia claims planar rectangular things tend to be at 2, so maybe a sail facing directly into the wind is slightly higher than that. 2 is a very round number, so I'll go with that.
+
+We could make a rough estimate though from knowing for a given ship the sail area, hull parameters, and maximum speed as a function of wind velocity, but I doubt it' worth it.
+
+For the furled sail case, we could give the horizontal supports \(c_D=.8\), which is wikipedia's value for a long cylinder. The mast itself probably has a similar drag coefficient.
+
+\subsection{Windspeed}
+
+Lacking much intuition for weather on the ocean, there are two situations that seem relevant. In the first, the ship (maybe 200ft long) is cruising along parallel to the wind near the 9.3 m/s hull speed when the wind suddenly picks up without changing direction to a 25 m/s gale, and the relevant relative windspeed is 15 m/s.
+
+In the second scenario, the ship is at rest, and then suddenly sees a 25 m/s gale normal to the plane of the sails, and the relevant airspeed is 25 m/s. The end result is sensitive to the square of the relative windspeed, so the difference is probably nontrivial.
+
+\subsection{Moment From Gravity}
+
+We can put a quick upper bound on this by just claiming that the mast will yield before bending by ten degrees, and then approximating that the mast sees a uniform load \(F=mg\sin\theta/L\). The moment that results is \(FL^2/2\). With a density of 600 kg/m\(^3\) and a radius of .7 m, \(M = 4 \times 10^4\) N m. This should overestimate by quite a bit, since a real mast would be made of progressively narrower segments.
+
+\subsection{Total Moment---Sails Deployed}
+
+The force on a sail is going to be more or less an inertial drag of \(\rho c_D A v^2/2\), where \(v\) is the wind velocity relative to the sail.
+
+Dividing this force evenly between the upper and lower supports on each sail, we have between \(5.6 \times 10^6\) and \(15.5 \times 10^6\) N m (15 m/s and 25 m/s wind cases respectively) of torque on the base of the mast from all sails combined, rendering gravity negligible.
+
+With a yield stress of 60 MPa, the radius we need is
+
+\[r = \left( \frac{4M}{\pi \sigma_{\mathrm{yield}}}   \right)^{1/3}
+\]
+
+which comes out to between .5 and .7 meters. From above, can totally ignore the effect from gravity.
+
+
+\subsection{Total Moment---Sails Furled}
+
+The horizontal supports contribute between \(.04 \times 10^6\) N m (15 m/s wind) and \(.11 \times 10^6\) N m (25 m/s wind) of torque on the base of the mast. A mast 1.4 m in diameter generates a uniform force per length \(\rho c_D Ldv^2/2L \) and moment \(FL^2/2 = \rho c_D d v^2 L^2/4 = 5.25 \times 10^5\) N m in the 25 m/s wind case.
+
+So hiding the sails from the wind drastically reduces the moment on the mast.
+
+
+\subsection{Other Thoughts}
+
+This kind of analysis is probably more appropriate to dealing with trees, since ship masts are supported by ropes. So what we really have is an upper bound on the necessary mast diameter, or else a strong intuition that a 50 m tree is surprisingly wind resistant.
+
+\section{Break Stepping Across a Bridge}
+
+It's commonly said that there are bridges that have resonant frequencies right on top of a typical marching cadence, so that troop formations must break step across. What are the major design parameters of a bridge that exhibits this behavior? Is this sort of bridge common?
+
+
+
+
+\end{document}
