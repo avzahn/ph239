@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.6in]{geometry}
+\title{Ph 239 Problem Set 8}
+\author{Alex Zahn}
+\date{5/27/2016}
+
+\begin{document}
+
+\maketitle
+
+\newcommand{\wmsq}{W/\(\mathrm{m}^2\,\)}
+\newcommand{\msq}{\(\mathrm{m}^2\,\)}
+\newcommand{\micron}{\(\mu\mathrm{m}\)\,}
+\newcommand{\mcb}{\(\mathrm{m}^3\,\)}
+\newcommand{\msqr}{m\(^2\)}
+
+
+\section{Energetics of Running}
+
+\subsection{First Pass}
+
+The simplest model we can adopt for steady-state running is that we're launching ourselves periodically into the air, traveling along a series of parabolic trajectories while being carried forward by a pre-existing forward velocity component. We probably lose all of vertical energy component on landing, on the assumption that humans are not exceptionally springy creatures.
+
+Suppose the launch angle is something like 45 degrees, somewhat unrigorously chosen so that each leap gets the most horizontal distance out of whatever launch velocity is generated. The vertical and horizontal velocity at takeoff are then both \(v\). Supplying the vertical velocity costs us \(\Delta E = \frac{1}{2}mv^2\), we stay airborn for \(\Delta t = 2v/g\). So the power required to run at speed \(v\) is just \(P = \Delta E / \Delta t=\frac{1}{4}mgv\). The drag power \(P_d\) is going to be at least \(\frac{1}{2}\rho c_D A v^3\), but not more than \(\frac{1}{2}\rho c_D A (\sqrt{2}v)^3\)
+
+Right away we can see a critical problem with this model. While \(P\) seems to scale the way we would expect, \(\Delta t\) certainly does not: if anything we want it to decrease with \(v\), so that we take stride more often as we run faster. 
+
+Trying this out on 70 kg runner at six minute per mile pace, we have \(v = 4.47\) m/s, yielding \(P = 767\) W. If our 70 kg runner has an area of \(1.8 \times .4 = .72\) \msq and a drag coefficient of 1.2, air resistance adds on between 47 and 134 W, and \(\Delta t\) comes out to .91 s.
+
+The same runner at the record marathon pace of 5.63 m/s has \(P = 966\) W, \(\Delta t = 1.15\) s, and \(P_d\) between 94 and 267 W. Usain Bolt (6'5'', 207 lbs, maybe 44 cm wide) at 12.27 m/s top speed gives \(P = 2822\) W, \(\Delta t = 2.5\) s, and \(P_d\) between 1170 and 3311 W.
+
+So it's clear this model isn't reasonable. We definitely need to get a better handle on drag, and we're spending far too much time flying through the air. \(P\) is on the high side of ridiculous too. For example, the accepted value for Usain Bolt's total peak power output, air resistance and all, is only 2600 W.
+
+Digressing a bit, I wasn't able to find where the 2600 W figure comes from. It's widely reported in a bunch of news articles that ``New Mexico researchers" figured it out, but not one journalist thought it relevant to mention how it was calculated or where to find the paper. I would guess that this can be done pretty accurately given Bolt's body measurements and a high framerate video. I've also heard of elite athletes having their power output measured from treadmill oxygen consumption tests, but I interpreted that the 2600 W figure is a measurement of peak power during the 2009 Berlin Olympics.
+
+
+
+
+\end{document}
