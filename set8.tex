@@ -5,6 +5,8 @@
 \author{Alex Zahn}
 \date{5/27/2016}
 
+\usepackage{amsmath}
+
 \begin{document}
 
 \maketitle
@@ -13,28 +15,75 @@
 \newcommand{\msq}{\(\mathrm{m}^2\,\)}
 \newcommand{\micron}{\(\mu\mathrm{m}\)\,}
 \newcommand{\mcb}{\(\mathrm{m}^3\,\)}
-\newcommand{\msqr}{m\(^2\)}
 
 
-\subsection{Loud Speaker}
+\section{Loud Speaker}
 
 At 100 db, we have a flux \(I = .01 \)  \wmsq. If this is projected over a hemisphere of radius 1 m, the total power emitted is \(P = \pi/50 \approx .06\) W. The flux at the speaker surface is \(I_s = 2\) \wmsq, or 123 dB.
 
-The pressure wave amplitude there is \(\Delta p_s = 20\sqrt{2} \approx 28.28\) Pa. At one atmosphere with a 1 m wavelength, this creates a displacement \(\xi \approx 50 \, \mu\)m. \(c_s \approx 345\) m/s  gives \(f = 345\) Hz. So the speaker drum vibrates with \(v = \xi \cos(2\pi ft)\) and the power required to drive it in a vacuum is \(P_0 = \frac{1}{2}m \langle v^2 \rangle/T = \frac{1}{4}m\xi^2 f \approx 2 \times 10^{-8} \) W, where \(m = .1\) kg
+The pressure wave amplitude there is \(\Delta p_s = 20\sqrt{2} \approx 28.28\) Pa. At one atmosphere with a 1 m wavelength, this creates a displacement \(\xi \approx 50 \, \mu\)m. \(c_s \approx 345\) m/s  gives \(f = 345\) Hz. So the speaker drum vibrates with \(v = \xi \cos(2\pi ft)\) and the power required to drive it in a vacuum is \(P_0 = \frac{1}{2}m \langle v^2 \rangle/T = \frac{1}{4}m\xi^2 f \approx 20  \) nW, where \(m = .1\) kg
 
 
 
+\section{Helmholtz Resonator Whistling}
+
+\subsection*{a}
+
+If we take \(\ell = 1\) cm and \(c_s = 345\) m/s, we end up with a volume of 34 mL at 500 Hz and 3.8 mL at 1 kHz. A human mouth has a volume of about 100-300 mL, so this seems mostly reasonable, though having never successfully whistled, this is just a guess.
+
+\subsection*{b}
+
+We have exit velocities of 15 m/s and 20 m/s with flow rates of .57 L/s and .25 L/s, respectively for the 500 Hz and 1 kHz cases. So the 500 Hz tone can be held for between 5 and 7 seconds on a 3-4 L breath, and the 1000 Hz tone for a little over twice that.
+
+\section{Human Cooling}
+
+\subsection{Air Velocity}
+
+Estimating the power requirements for running turns out to be pretty difficult, but let's say this is a ten minute per mile jog. Going much more slowly than this would put us in the walk-run transition. So let's put our velocity at 2.6 m/s. Wind speed might be 1.5 m/s on a fairly still day, though it could be higher on the beach. Our direction to the wind is probably more or less random, so I'll work the problem for net air velocities \(v\) between 1 m/s and 5 m/s.
+
+\subsection{Convective Cooling}
+
+For the purposes of convective cooling, the relevant area is going to be dependent on the direction to the wind (which also is going to affect our estimate of the boundary layer depth). Let's say the runner is a 1.5 m \(\times\) .4 m rectangle (the wind isn't really going to see or care about the small scale structure of the surface that makes the surface area higher than this).
+
+Running directly into the wind, we have \(A_0 = .72\) \msq that sees wind \(v\) with a boundary layer generation length \(x = 20\) cm. We also have another \(A_0\) that sees stiller air on the leeward side. Let's say this sees 1 m/s of air velocity with the same \(x=20\) cm, independently of \(v\).
+
+We could also have the airflow take the runner side on. The area then is \(2A_0\) with \(x=40\) cm, though \(v\) should be somewhat smaller since the running speed and wind speed are comparable. Ignoring this, this is our baseline convective cooling upper bound, and the former case is a lower bound.
+
+So for \(v=1\) m/s, \(P_{\mathrm{conv}}\) is between 96 and 193 W. For \(v=5\) m/s,  \(P_{\mathrm{conv}}\) is between 216 and 433 W.
+
+\subsection{Radiative Cooling}
+
+The relevant radiative area is probably about \(2A_0\). Then \(P_{\mathrm{rad}} \approx 2A_0\sigma(T_{\mathrm{body}}^4 - T_{\mathrm{air}}^4) = 47\) W.
+
+The only non straightforward concern is how to consider heating from solar radiation. On the assumption that standing still in 35 C air during the day (\(v\approx 1\) m/s ) doesn't induce sweating (unless we're standing in an asphalt parking lot at noon or something like that) we could say that solar heating contributes less than \(P_{\mathrm{rad}} + P_{\mathrm{conv}}\), or below 150 W. Beaches aren't especially reflective environments, so maybe we want a lower number than this.
+
+\subsection{Evaporative Cooling}
+
+Adding a 100 W base metabolism to the 100 W jog, we need to carry away 200 W of heat. With solar radiation, this may be up to 350 W.
+
+We don't expect to see less than 100 W of convective cooling, and radiative cooling is fairly confidently about 50 W. So the highest evaporative cooling power we could need is 200 W. This requires .08 mL /s of evaporation, or 1.44 L over thirty minutes, which seems realistic for light running.
+
+Convective cooling could conceivably be over 200 W alone, and if the sun isn't out, we end up with a 50 W heat deficit. Having run long distances at night and in various wind conditions, this seems pretty realistic (even in coastal southern California). In mild wind at night, it's easily possible to pick a route that's too long for your ability to run fast enough to keep warm for the duration.
+
+
+\section{Personal Energy Output}
+
+I've become extremely out of shape since becoming a grad student, but at one point I ran semi seriously, measured a lot of route distances, and timed a lot of runs.
+
+So initially I set out to figure out the power requirements for running. This didn't work out for my purposes in this question, but I did record the attempt for the next question.
+
+I was still able to put a lower bound on my former power output though. There was a particular stretch of road .6 miles long covering 105 m vertically along a route that I used to run. I usually covered this part of the route in four minutes. At the time weighing almost exactly 70 kg, this comes out to just over 300 average climbing watts.
 
 
 \section{Energetics of Running}
 
 \subsection{First Pass}
 
-The simplest model we can adopt for steady-state running is that we're launching ourselves periodically into the air, traveling along a series of parabolic trajectories while being carried forward by a pre-existing forward velocity component. We probably lose all of the vertical energy component on landing, on the assumption that humans are not exceptionally springy creatures.
+The simplest model (not my own) I've seen for steady-state running is that we're launching ourselves periodically into the air, traveling along a series of parabolic trajectories while being carried forward by a pre-existing forward velocity component. We probably lose all of the vertical energy component on landing, on the assumption that humans are not exceptionally springy creatures.
 
 Suppose the launch angle is something like 45 degrees, somewhat unrigorously chosen so that each leap gets the most horizontal distance out of whatever launch velocity is generated. The vertical and horizontal velocity at takeoff are then both \(v\). Supplying the vertical velocity costs us \(\Delta E = \frac{1}{2}mv^2\), we stay airborn for \(\Delta t = 2v/g\). So the power required to run at speed \(v\) is just \(P = \Delta E / \Delta t=\frac{1}{4}mgv\). The drag power \(P_d\) is going to be at least \(\frac{1}{2}\rho c_D A v^3\), but not more than \(\frac{1}{2}\rho c_D A (\sqrt{2}v)^3\)
 
-Right away we can see a critical problem with this model. While \(P\) seems to scale the way we would expect, \(\Delta t\) certainly does not: if anything we want it to decrease with \(v\), so that we take stride more often as we run faster. 
+Right away we can see a critical problem with this model. While \(P\) seems to scale the way we would expect, \(\Delta t\) certainly does not: if anything we want it to decrease with \(v\), so that we stride more often as we run faster. 
 
 Trying this out on 70 kg runner at six minute per mile pace, we have \(v = 4.47\) m/s, yielding \(P = 767\) W. If our 70 kg runner has an area of \(1.8 \times .4 = .72\) \msq and a drag coefficient of 1.2, air resistance adds on between 47 and 134 W, and \(\Delta t\) comes out to .91 s.
 
@@ -44,7 +93,19 @@ So it's clear this model isn't reasonable. We definitely need to get a better ha
 
 Digressing a bit, I wasn't able to find where the 2600 W figure comes from. It's widely reported in a bunch of news articles that ``New Mexico researchers" figured it out, but not one journalist thought it relevant to mention how it was calculated or where to find the paper. I would guess that this can be done pretty accurately given Bolt's body measurements and a high framerate video. I've also heard of elite athletes having their power output measured from treadmill oxygen consumption tests, but I interpreted that the 2600 W figure is a measurement of peak power during the 2009 Berlin Olympics.
 
+\subsection{Second Attempt}
 
+Maybe a better model chooses the period \(\Delta t\) as a function of the horizontal velocity \(v_x\) first, sets the launch velocity \(v_z\) from that, and then finally determines the power.
 
+The major complication is that we've just seen that for fast sprinting, the drag power is highly significant, so that the runner's center of mass trajectory is probably very non parabolic. In the low drag limit though, we might try
+
+\begin{align*}
+v_z &= \frac{1}{2}g\Delta t(v_x) \\[11pt]
+P &= f(\Delta t) + \frac{1}{2}m v_z^2 / \Delta t(v_x) = f(\Delta t) + \frac{1}{8}mg^2\Delta t(v_x)
+\end{align*}
+
+where \(f(\Delta t)\) is whatever power is necessary to force the legs to oscillate at twice that period. Before going any further, we can see a problem right away. For a very slow jog near the walking period of about .8 s, a 70 kg runner must spend at least 672 W from the \(g^2\) term alone.
+
+The only conlcusion I can draw from this is that humans are in fact springy; runners must be recovering a large fraction of their vertical velocity on each stride.
 
 \end{document}
