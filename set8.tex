@@ -19,11 +19,17 @@
 
 \section{Loud Speaker}
 
-At 100 db, we have a flux \(I = .01 \)  \wmsq. If this is projected over a hemisphere of radius 1 m, the total power emitted is \(P = \pi/50 \approx .06\) W. The flux at the speaker surface is \(I_s = 2\) \wmsq, or 123 dB.
+At 100 db, we have a flux \(I = .01 \)  \wmsq. If this is projected over a hemisphere of radius 1 m, the total power emitted is \(P_a = \pi/50 \approx 63\) mW. The flux at the speaker surface is \(I_s = 2\) \wmsq, or 123 dB.
 
-The pressure wave amplitude there is \(\Delta p_s = 20\sqrt{2} \approx 28.28\) Pa. At one atmosphere with a 1 m wavelength, this creates a displacement \(\xi \approx 50 \, \mu\)m. \(c_s \approx 345\) m/s  gives \(f = 345\) Hz. So the speaker drum vibrates with \(v = \xi \cos(2\pi ft)\) and the power required to drive it in a vacuum is \(P_0 = \frac{1}{2}m \langle v^2 \rangle/T = \frac{1}{4}m\xi^2 f \approx 20  \) nW, where \(m = .1\) kg
+The pressure wave amplitude there is \(\Delta p_s = 20\sqrt{2} \approx 28.28\) Pa. At one atmosphere with a 1 m wavelength, this creates a displacement \(\xi \approx 50 \, \mu\)m. \(c_s \approx 345\) m/s  gives \(f = 345\) Hz. 
 
+%So in a single period, the speaker drum has to cover 100 \micron, and has an average velocity of 3.45 cm/s. At .1 kg, the energy required to reach this velocity is 5.95 mW.
 
+So the speaker drum vibrates with \(x = \xi \sin(2\pi ft)\) and \(v = 2\pi\xi f \cos 2\pi f t\). The power required to drive it in a vacuum in the absence of any form of mechanical resistance is \(P_0 = \frac{1}{2}m \langle v^2 \rangle/T = m\pi^2\xi^2 f^3 \approx 100  \) mW, where \(m = .1\) kg
+
+The speaker drum could have some kind of spring constant to it, so that we don't actually have to spend all of that 100 mW to keep it moving. It probably can't be too springy though, or else the speaker would have a strong preference towards a natural frequency that can't be good for having a flat frequency response.
+
+It's pretty hard to come up with any nontrivial mechanical losses on a speaker drum, so I'm going to claim that the worst case power input for this speaker is 163 mW, and the worst case sound production efficiency is \(63/163\approx 39\%\).
 
 \section{Helmholtz Resonator Whistling}
 
@@ -70,9 +76,10 @@ Convective cooling could conceivably be over 200 W alone, and if the sun isn't o
 
 I've become extremely out of shape since becoming a grad student, but at one point I ran semi seriously, measured a lot of route distances, and timed a lot of runs.
 
-So initially I set out to figure out the power requirements for running. This didn't work out for my purposes in this question, but I did record the attempt for the next question.
+So initially I set out to estimate the power requirements for running. This didn't work out for my purposes in this question, but I did record the attempt for the next question.
 
-I was still able to put a lower bound on my former power output though. There was a particular stretch of road .6 miles long covering 105 m vertically along a route that I used to run. I usually covered this part of the route in four minutes. At the time weighing almost exactly 70 kg, this comes out to just over 300 average climbing watts.
+I was still able to put a lower bound on my former power output though. There was a particular stretch of road .6 miles long covering 105 m vertically that I used to be able to run in four minutes. At the time weighing almost exactly 70 kg, this comes out to just over 300 average climbing watts.
+
 
 
 \section{Energetics of Running}
@@ -104,8 +111,25 @@ v_z &= \frac{1}{2}g\Delta t(v_x) \\[11pt]
 P &= f(\Delta t) + \frac{1}{2}m v_z^2 / \Delta t(v_x) = f(\Delta t) + \frac{1}{8}mg^2\Delta t(v_x)
 \end{align*}
 
-where \(f(\Delta t)\) is whatever power is necessary to force the legs to oscillate at twice that period. Before going any further, we can see a problem right away. For a very slow jog near the walking period of about .8 s, a 70 kg runner must spend at least 672 W from the \(g^2\) term alone.
+where \(f(\Delta t)\) is whatever power is necessary to force the legs to oscillate at twice that period. Before going any further, we can see a problem right away. For a slow jog with \(\Delta T \approx\) .6 s, a 70 kg runner must spend at least 504 W from the \(g^2\) term alone, which is more than a little too high. 
 
-The only conlcusion I can draw from this is that humans are in fact springy; runners must be recovering a large fraction of their vertical velocity on each stride.
+\subsection{One more try}
+
+Clearly we have to relax some assumptions. First, humans could be nontrivially springy; maybe they recover a substantial fraction of the vertical impact energy as launch energy on the next stride. Call this energy recovery fraction \(\alpha\).
+
+Second, a significant fraction of the stride could be spent on the ground. A more realistic trajectory might involve moving horizontally at the beginning and end of the stride (pivoting more or less cost free over a leg), and only moving parabolically in the middle. Let the fraction of the stride spent airborne be \(\beta\). The most straightforward modification to the previous attempt is
+
+\begin{align*}
+v_z &= \frac{1}{2}g\beta\Delta t \\[11pt]
+P &= f + \frac{1}{8}(1-\alpha)m\beta^2 g^2 \Delta t
+\end{align*}
+
+\(\beta\) for a slow jog might be roughly 1/2. Maybe we could nail this down better by looking at slow motion video, but at least we can see that it's not too hard to get that 504 W lower bound closer to 126 W. This would suggest \(\alpha > .2\) to match the intuition that this shouldn't cost more than 100 W.
+
+That's a pretty unrigorous estimate of \(\alpha\) (sensitive to \(\beta^2\)), but at least we gain some intuition that nontrivially springy humans are at least plausible.
+
+\subsubsection{\(f\), \(\beta\), and \(\Delta t\)}
+
+These all should be functions of \(v_x\). I won't try to analyze them, but some kind of constrained double pendulum seems like a good place to start. 
 
 \end{document}
