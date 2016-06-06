@@ -3,7 +3,7 @@
 \usepackage[margin=0.6in]{geometry}
 \title{Ph 239 Problem Set 9}
 \author{Alex Zahn}
-\date{6/2/2016}
+\date{6/3/2016}
 
 \usepackage{amsmath}
 
@@ -31,19 +31,48 @@ The density of air at 293 K and 50\% relative humidity is 8.5 g/\mcb. A single c
 This might very naively bring the lapse rate down to (20-4) K / 2 km = 8 K/km, yielding a cloud height of 2.5 km.
 
 
+\section{Greenhouse Effect}
+
+\subsection{a}
+
+The simplest, most naive estimate is to scale the 7 K carbon dioxide contribution up by 400/280 = 10/7 to find a 3 K temperature increase.
+
+\subsection{b}
+
+If equilibrium vapor pressure goes with \(e^{-5132/T}\) and the pre-industrial temperature is 288 K, we might roughly expect a 20\% increase vapor pressure from going to 291 K. The scale height only rises by about one percent, so we might claim that the water concentration increase is also 20\%. Scaling up the 21 K water vapor greenhouse contribution by this much, we get an additional temperature increase of 4 K.
+
+Clearly, iterating like this gives us an unlimited temperature increase, and this probably isn't a realistic way to scale the water concentration. Water vapor is buoyant in air, so the equilibrium vapor pressure approach doesn't make sense anyway. Let's instead scale the 21 K water contribution by 291/288, which yields a much more believable .2 K increase, leaving us at 291.2 K.
+
+\subsection{c}
+
+If water gives us a \(21(\frac{T}{288}-1)\) boost over 288 K and the carbon dioxide always gives 3 K, we must have that \(T - 288 = 21(\frac{T}{288}-1) + 3\), so that we end up with \(T = 291.24\) K.
+ 
+
 \section{Carbon Sequestration}
 
-Let's put a lower bound on the problem by optimistically assuming all of our fossil fuels are methane. The average American uses 8 kW of fossil fuels. If the age structure of the US population is stable, we can multiply this by the 79 year life expectancy for a lifetime energy consumption of about 20 TJ.
+\subsection{Volume of Concrete}
 
-That's actually a pretty impressive number, considering that a typical nuclear power plant has only has a gigawatt output. A single pathetic mortal's energy habit totals five and half hours of the entire output of an enormous nuclear facility. Really makes you feel like a supervillain.
+Let's put a lower bound on the problem by optimistically assuming all of our fossil fuels are methane. The average American uses 8.5 kW of fossil fuels. If the age structure of the US population is stable, we can multiply this by the 79 year life expectancy for a lifetime energy consumption of about 20 TJ.
 
-Methane has a heat of combustion of 55.7 kJ/g and a molecular mass of \(2.66 \times 10^{-23}\) g. So each methane molecule is worth \(1.5 \times 10^{-21}\) kJ.
+That's actually a pretty impressive number, considering that a typical nuclear power plant has only has a gigawatt output. A single pathetic mortal's energy habit totals over five and half hours of the entire output of an enormous nuclear facility. Really makes you feel like a supervillain.
 
+Methane has a heat of combustion of 55.7 kJ/g and a molecular mass of \(2.66 \times 10^{-23}\) g. So each methane molecule is worth \(1.5 \times 10^{-21}\) kJ, and we need to burn \(1.3 \times 10^{37}\) of them, whose carbon can be sequestered in the same number of CaCO\(_3\) molecules. At 100 g/mol and 2.5 g/cm\(^3\), this much calcium carbonate would fill \(9\times 10^8\) m\(^3\). In cube form, this is almost a kilometer on a side, and would stand 170 m taller than the Burj Khalifa.
+
+\subsection{Dumping it in the Ocean}
+
+Let \(R\) be the Earth radius and \(h\) be atmospheric density scale height. The volume of the atmosphere up to a scale height is \(V_{\mathrm{atm}} = \frac{4}{3}\pi( (R+h)^3 - R^3 ) \approx 4\pi R^2h \approx 4 \times 10^{18}\) \mcb. Similarly, for an average ocean depth of 3700 m over 75\% of the surface, we have \(V_{\mathrm{ocean}} \approx 1.4 \times 10^{12}\) k\mcb.
+
+Now we want to sequester 120 ppm by volume (180 ppm by mass) of atmospheric carbon dioxide, or about \(10^{15}\) kg, which is \(1.3 \times 10^{40}\) molecules. So we need about a thousand cubic kilometers of calcium carbonate, which would only raise sea levels by one part in a billion. This comes out to roughly 3.7 \micron.
 
 
 
 \section{Everything Wrong with \textit{The Martian}}
 
-It really frustrates me that this movie is considered realistic, and I've been waiting for an opportunity to propose debunking it.
+It really frustrates me that this movie is considered realistic, and I've been waiting for an opportunity to propose debunking it. Without implying that the rest of the movie isn't also horrifically wrong, let's consider the first scene.
+
+A Martian dust storm threatens to tip over a spacecraft which is the heroes' only way off the planet. The craft is roughly cylindrical, maybe five meters in diameter and five meters long, with its symmetry axis normal to the ground.
+
+What must the wind velocity be to tip it over? If we use the surface dust to increase the density of the wind, to what depth does the Martian surface have to participate in order to tip the spacecraft over at typical Martian storm speeds of 60 mph?
+
 
 \end{document}
