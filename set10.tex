@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.6in]{geometry}
+\title{Ph 239 Problem Set 9}
+\author{Alex Zahn}
+\date{6/9/2016}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\maketitle
+
+\newcommand{\wmsq}{W/\(\mathrm{m}^2\,\)}
+\newcommand{\msq}{\(\mathrm{m}^2\,\)}
+\newcommand{\micron}{\(\mu\mathrm{m}\)\,}
+\newcommand{\mcb}{\(\mathrm{m}^3\,\)}
+\newcommand{\degree}{\(^\circ\,\)}
+
+
+\section{}
+
+\subsection{a}
+
+I printed out a checker pattern with a 2.27 mm period. Using foot long SERF floor tiles as distance markers, the pattern was clearly resolved at 12 ft (2.1'). It was questionably resolved at 16 ft (1.6'), at which point aliasing effects started to become visible. At 24 ft (1'), the sheet didnt quite look like a gray blur, and I could tell that the sheet was probably not a solid color. By 30 ft (.85'), I think the sheet appeared convincingly solid. There's of course some extra subjectivity here since I knew in advance that the sheet was checkered.
+
+\subsection{b}
+
+This looks like a good place for a table of \(\lambda/d\) for a few visible wavelengths and pupil diameters. Units given are arcminutes.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & 2 mm& 3 mm & 8 mm \\ \hline 
+750 nm &1.29 &.86 &.32\\ \hline
+565 nm &.97 &.65 &.24 \\ \hline
+380 nm &.65 &.44 &.16 \\ \hline
+\end{tabular}
+\end{center}
+
+
+The 2 and 8 mm pupil diameters are the highest and lowest human values I could find on the internet. Obviously the 8 mm value isn't remotely applicable to our experiment, but it's there for reference. 3 mm is what I get from trying to measure the diameter of the reflection of my pupil in a mirror with a dry erase marker and a ruler. That turned out to be surprsingly tricky though, because the pupil diameter had significant jitter on it---easily varying by a millimeter in half a second. That's actually pretty interesting, because it takes minutes to adjust between high and low light levels. At any rate, I don't place much faith in the 3 mm measurement.
+
+The wavelengths are reasonably representative values for the low, middle, and high ends of the visible spectrum.
+
+
+It seems pretty clear though that the measurement in (a) indicates that human vision is in practice not diffraction limited. This makes sense, becaue it's easily seen that squinting or using a usually pinhole improves angular resolution, implying that spherical aberration is probably the limiting factor in most cases.
+
+
+Of course \(\lambda/d\) only gives us the scale of the diffraction limit; there's a lot of subjectivity in deciding on a prefactor between one and two.
+
+\subsection{c}
+
+Continuing on in the spirit of inaccurate measurements, I get from measuring the width/distance to eye ratio 1.8\degree for the angular diameter of my thumb, .9\degree for my pinky, 8\degree for my fist, and 14.4\degree for the maximally stretched pinky to thumb distance.
+
+For the latter, I also tried walking it around a complete circle, using whatever reference markers were in the room to stabilize the measurement. I end up needing to take 19.5 steps, yielding 18.5\degree. If each step has a quarter degree error, we pick up an uncertainty of only 1.1\degree from the walk. The last step though could be off by 20\% of a thumb-pinky angular diameter, and might have an uncertainty in it of about 3\degree to 4\degree, depending on what we take the angular diameter here to actually be. So conservatively, I would claim this method yields \(18.5\pm 4.15\)\degree. A little less conservatively, we could claim \(18.5\pm 3.2\)\degree. 
+
+For the former method, I could generously put a 3 cm error on the eye distance and a .5 cm error on the thumb-pinky span, but I can't squeeze out more than a half degree of uncertainty on the 14.4\degree measurement. So there's maybe a little unresolved tension between the two measurements here.
+
+\section{Chromatic Aberration and PETSMART}
+
+At night, I've noticed that red lights are in very noticeably sharper focus than most other things. Blue lights appear significantly blurrier than their surroundings.
+
+Can we derive a figure of merit for chromatic aberration by observing the PETSMART logo at different distances, comparing when the red and blue letters come into focus?
+
+Hopefully I'm not the only person who experiences this sort of chromatic abberation. If so, replace ``we" with ``I" in the preceding paragraph.
+
+\end{document}
